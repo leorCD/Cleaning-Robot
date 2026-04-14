@@ -1,17 +1,20 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1776206290
-::res://global/::1776204657
-sceneTransition.tscn::PackedScene::7756507869040889086::1776204657::0::1::::<><><>0<>0<><>::uid://cacjwq6d4pdvc::::res://shaders/circle fade.gdshader<>uid://cejwpup611wer::::res://scripts/scene_transition.gd
-::res://machines/::1776204656
-::res://scenes/::1776204657
-main menu.tscn::PackedScene::1899473051552967278::1776204657::0::1::::<><><>0<>0<><>::uid://disawgklq2teu::::res://textures/image (1).png<>uid://cqhhr1sm2yefr::::res://scripts/main_menu.gd
-test.tscn::PackedScene::662541423075267582::1776204657::0::1::::<><><>0<>0<><>::uid://c8cuqmos7mc8y::::res://scripts/test.gd<>uid://dbpijmmatdkuy::::res://textures/123.png
-::res://scripts/::1776204657
-main_menu.gd::GDScript::5910770281314724667::1776204657::0::1::::<>Control<><>0<>0<><>::
+::res://::1776207771
+::res://global/::1776207693
 scene_transition.gd::GDScript::5073539777557664769::1776204657::0::1::::<>Control<><>0<>0<><>::
-test.gd::GDScript::7094445528275736994::1776204657::0::1::::<>Node2D<><>0<>0<><>::
+sceneTransition.tscn::PackedScene::7756507869040889086::1776207693::0::1::::<><><>0<>0<><>::uid://cacjwq6d4pdvc::::res://shaders/circle fade.gdshader<>uid://cejwpup611wer::::res://scripts/scene_transition.gd
+::res://player/::1776207722
+crouch.png::CompressedTexture2D::6886703689134957932::1776206789::1776206795::1::::<><><>0<>0<>b8e27f2b99486b9bfcb8f6656d421905<>res://.godot/imported/crouch.png-2c69719d90b497f608703f3740297893.ctex::
+player.gd::GDScript::5340750880108269075::1776207642::0::1::::Player<>CharacterBody2D<><>0<>0<><>::
+player.tscn::PackedScene::7511692710325812359::1776207722::0::1::::<><><>0<>0<><>::uid://bk720h8wkrjpo::::res://player/stand.png<>uid://ciddnfa6xo1sh::::res://player/player.gd
+stand.png::CompressedTexture2D::3156053631511273176::1776206789::1776206792::1::::<><><>0<>0<>d75a933d759e9943b5df1529e10defcc<>res://.godot/imported/stand.png-06be94db50c17e86d934d445d521d534.ctex::
+::res://scenes/::1776207773
+level1.tscn::PackedScene::662541423075267582::1776207773::0::1::::<><><>0<>0<><>::uid://dfayqmttyqmjf::::res://player/player.tscn
+main menu.tscn::PackedScene::1899473051552967278::1776206575::0::1::::<><><>0<>0<><>::uid://disawgklq2teu::::res://textures/image (1).png<>uid://cqhhr1sm2yefr::::res://scripts/main_menu.gd
+::res://scripts/::1776207722
+main_menu.gd::GDScript::5910770281314724667::1776207722::0::1::::<>Control<><>0<>0<><>::
 ::res://shaders/::1776204657
 circle fade.gdshader::Shader::4777556751733320512::1776204657::0::1::::<><><>0<>0<><>::
-::res://textures/::1776206365
+::res://textures/::1776206367
 123.png::CompressedTexture2D::7260919017958883248::1776204657::1776206366::1::::<><><>0<>0<>9bc28026b43b3616e0136141293e2b8e<>res://.godot/imported/123.png-405feecba636afd344ec103f895ff469.ctex::
 image (1).png::CompressedTexture2D::7757971218332945312::1776204657::1776206367::1::::<><><>0<>0<>fc63ba9ab5c4ab87b2b20742ab18dbe0<>res://.godot/imported/image (1).png-26f58f716ebb3f89d03d8aefeee83a4a.ctex::

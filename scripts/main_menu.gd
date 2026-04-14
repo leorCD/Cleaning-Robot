@@ -15,7 +15,7 @@ func _ready() -> void:
 
 
 func playFunction() -> void:
-	SceneTransition.change_scenes("res://scenes/test.tscn")
+	SceneTransition.change_scenes("res://scenes/level1.tscn")
 	
 func settingsFunction() -> void:
 	print("open settings")
