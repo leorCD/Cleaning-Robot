@@ -10,8 +10,11 @@ var speed : int = 2 * 5000
 var crouching : bool = false
 var reaching : bool = false
 var direction : float
+var alive : bool = true
 
 func _physics_process(delta: float) -> void:
+	if not alive: return
+	
 	# apply gravity
 	if not self.is_on_floor():
 		self.velocity.y += gravity * delta
@@ -40,6 +43,8 @@ func _physics_process(delta: float) -> void:
 var crouchTexture = preload("res://player/crouch.png")
 var standTexture = preload("res://player/stand.png")
 func _process(_delta: float) -> void:
+	if not alive: return
+	
 	if direction == -1:
 		sprite.flip_h = true
 	elif direction == 1:
@@ -57,3 +62,6 @@ func _process(_delta: float) -> void:
 
 func get_stance() -> InteractionType.Stance:
 	return currentStance
+	
+func die() -> void:
+	self.alive = false

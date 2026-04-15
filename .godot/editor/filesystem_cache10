@@ -1,19 +1,21 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1776217814
-::res://global/::1776216970
+::res://::1776220375
+::res://global/::1776219408
 4_3_fake_aspect_ratio.tscn::PackedScene::4827684605002270165::1776217771::0::1::::<><><>0<>0<><>::
 sceneTransition.tscn::PackedScene::7756507869040889086::1776216970::0::1::::<><><>0<>0<><>::uid://cacjwq6d4pdvc::::res://shaders/circle fade.gdshader<>uid://cejwpup611wer::::res://global/scene_transition.gd
-scene_transition.gd::GDScript::5073539777557664769::1776217861::0::1::::<>Control<><>0<>0<><>::
-::res://player/::1776216828
+scene_transition.gd::GDScript::5073539777557664769::1776219408::0::1::::<>Control<><>0<>0<><>::
+::res://player/::1776220560
 crouch.png::CompressedTexture2D::6886703689134957932::1776206789::1776206795::1::::<><><>0<>0<>b8e27f2b99486b9bfcb8f6656d421905<>res://.godot/imported/crouch.png-2c69719d90b497f608703f3740297893.ctex::
 interactiontype.gd::GDScript::1322253593412859267::1776213707::0::1::::InteractionType<>RefCounted<><>0<>0<><>::
 player.gd::GDScript::5340750880108269075::1776214282::0::1::::Player<>CharacterBody2D<><>0<>0<><>::
-player.tscn::PackedScene::7511692710325812359::1776216828::0::1::::<><><>0<>0<><>::uid://bk720h8wkrjpo::::res://player/stand.png<>uid://ciddnfa6xo1sh::::res://player/player.gd<>uid://bbb5iqjvy5g8c::::res://player/modules/interact_module.gd
+player.tscn::PackedScene::7511692710325812359::1776220573::0::1::::<><><>0<>0<><>::uid://bk720h8wkrjpo::::res://player/stand.png<>uid://ciddnfa6xo1sh::::res://player/player.gd<>uid://bbb5iqjvy5g8c::::res://player/modules/interact_module.gd<>uid://dlax8vfao6kk6::::res://player/modules/hud_module.gd
 stand.png::CompressedTexture2D::3156053631511273176::1776206789::1776206792::1::::<><><>0<>0<>d75a933d759e9943b5df1529e10defcc<>res://.godot/imported/stand.png-06be94db50c17e86d934d445d521d534.ctex::
-::res://player/modules/::1776214741
-interact_module.gd::GDScript::2460510556483671500::1776214741::0::1::::InteractionModule<>Area2D<><>0<>0<><>::
-::res://scenes/::1776217771
-level1.tscn::PackedScene::9038333778552083023::1776217860::0::1::::<><><>0<>0<><>::uid://dbpijmmatdkuy::::res://textures/123.png<>uid://dfayqmttyqmjf::::res://player/player.tscn<>uid://bw4wn5pphs17g::::res://scripts/cleanableObjects/sink.gd<>uid://bgm2k0dlyukn6::::res://textures/sink.png<>uid://ca1ti3xnqjjh2::::res://scenes/4_3_fake_aspect_ratio.tscn
+::res://player/modules/::1776220560
+hud_module.gd::GDScript::7932795863864463795::1776220477::0::1::::HUDModule<>CanvasLayer<><>0<>0<><>::
+interact_module.gd::GDScript::2460510556483671500::1776220560::0::1::::InteractionModule<>Area2D<><>0<>0<><>::
+battery_module.gd::GDScript::3147668598171391553::1776220596::0::1::::<>Node2D<><>0<>0<><>::
+::res://scenes/::1776219545
+level1.tscn::PackedScene::9038333778552083023::1776219408::0::1::::<><><>0<>0<><>::uid://dbpijmmatdkuy::::res://textures/123.png<>uid://dfayqmttyqmjf::::res://player/player.tscn<>uid://bw4wn5pphs17g::::res://scripts/cleanableObjects/sink.gd<>uid://bgm2k0dlyukn6::::res://textures/sink.png<>uid://ca1ti3xnqjjh2::::res://global/4_3_fake_aspect_ratio.tscn
 main menu.tscn::PackedScene::1899473051552967278::1776206575::0::1::::<><><>0<>0<><>::uid://disawgklq2teu::::res://textures/image (1).png<>uid://cqhhr1sm2yefr::::res://scripts/main_menu.gd
 ::res://scripts/::1776211631
 main_menu.gd::GDScript::5910770281314724667::1776207949::0::1::::<>Control<><>0<>0<><>::
@@ -21,6 +23,8 @@ main_menu.gd::GDScript::5910770281314724667::1776207949::0::1::::<>Control<><>0<
 sink.gd::GDScript::3991802787323367758::1776214232::0::1::::Cleanable<>Area2D<><>0<>0<><>::
 ::res://shaders/::1776204657
 circle fade.gdshader::Shader::4777556751733320512::1776204657::0::1::::<><><>0<>0<><>::
+::res://tasks/::1776219567
+Sink.tscn::PackedScene::1652110304320971999::1776219567::0::1::::<><><>0<>0<><>::
 ::res://textures/::1776217814
 123.png::CompressedTexture2D::7260919017958883248::1776204657::1776206366::1::::<><><>0<>0<>9bc28026b43b3616e0136141293e2b8e<>res://.godot/imported/123.png-405feecba636afd344ec103f895ff469.ctex::
 ima231ge.png::CompressedTexture2D::941406459855824332::1776217484::1776217484::1::::<><><>0<>0<>d1ffb1c4c51138ac8b1acf525e87f95e<>res://.godot/imported/ima231ge.png-33c70900df7269f9900bb95b255915d6.ctex::

@@ -1,7 +1,8 @@
 extends Area2D
 class_name InteractionModule
 
-@onready var parent = self.get_parent()
+@onready var parent : Player = self.get_parent()
+@export var HUD : CanvasLayer = null
 
 var nearbyInteractables : Array[Cleanable] = []
 var targetInteractable : Cleanable = null
@@ -10,14 +11,11 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		if not targetInteractable: return
 		
-		var currentStance = get_parent_stance()
+		var currentStance = parent.get_stance()
 		targetInteractable.clean(currentStance)
-		$InteractionUI/Label.text = "Cleaning " + str(InteractionType.Stance.keys()[currentStance])
+		
+		HUD.set_interaction_text("Cleaning " + str(InteractionType.Stance.keys()[currentStance]))
 
-func get_parent_stance() -> InteractionType.Stance:
-	if parent and parent is Player:
-		return parent.get_stance()
-	return InteractionType.Stance.NONE
 
 
 # store objects colliding with player
@@ -48,6 +46,6 @@ func update_closest_interactable() -> void:
 	targetInteractable = closest
 	
 	if targetInteractable == null:
-		$InteractionUI/Label.text = ""
+		HUD.set_interaction_text("")
 	else:
-		$InteractionUI/Label.text = "Press 'space' to clean " + str(targetInteractable.name)
+		HUD.set_interaction_text("Press 'space' to clean " + str(targetInteractable.name))

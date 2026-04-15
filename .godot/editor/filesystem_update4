@@ -8,3 +8,7 @@ res://player/interactiontype.gd
 res://scenes/4_3_fake_aspect_ratio.tscn
 res://global/sceneTransition.tscn
 res://global/scene_transition.gd
+res://player/modules/hud_module.gd
+res://player/modules/battery_module.gd
+res://scenes/main menu.tscn
+res://scripts/main_menu.gd
