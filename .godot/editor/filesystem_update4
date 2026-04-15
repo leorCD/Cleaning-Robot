@@ -1,6 +1,7 @@
-res://scenes/main menu.tscn
-res://scripts/main_menu.gd
-res://global/sceneTransition.tscn
-res://scenes/level1.tscn
 res://player/player.tscn
+res://scenes/level1.tscn
+res://player/modules/interact_module.gd
+res://scripts/cleanableObjects/sink.gd
 res://player/player.gd
+res://player/interactiontypes.gd
+res://player/interactiontype.gd

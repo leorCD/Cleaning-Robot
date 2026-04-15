@@ -3,27 +3,43 @@ class_name Player
 
 @onready var sprite = $Sprite2D
 
-var gravity : int = 9.81 * 5000
-var speed : int = 2 * 5000
+var currentStance : InteractionType.Stance = InteractionType.Stance.STAND
 
+var gravity : float = 9.81 * 5000
+var speed : int = 2 * 5000
 var crouching : bool = false
-var direction : int
+var reaching : bool = false
+var direction : float
 
 func _physics_process(delta: float) -> void:
+	# apply gravity
 	if not self.is_on_floor():
 		self.velocity.y += gravity * delta
 	
+	# movement direction
 	direction = Input.get_axis("left", "right")
-	var finalVel = (direction * (speed)) / (1 + int(crouching))
+	var finalVel = (direction * (speed)) / (1 + float(crouching))
 	self.velocity.x = finalVel * delta
 	
+	# crouching and reaching values
 	crouching = Input.is_action_pressed("down")
+	reaching = Input.is_action_pressed("up")
+	
+	# set current cleaning stance
+	#currentStance = InteractionType.Stance.CROUCH if crouching else InteractionType.Stance.STAND
+	# this above code was replaced since theres 3 stances and not 2
+	if crouching:
+		currentStance = InteractionType.Stance.CROUCH
+	elif reaching:
+		currentStance = InteractionType.Stance.REACHING
+	else:
+		currentStance = InteractionType.Stance.STAND
 
 	move_and_slide()
 
 var crouchTexture = preload("res://player/crouch.png")
 var standTexture = preload("res://player/stand.png")
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if direction == -1:
 		sprite.flip_h = true
 	elif direction == 1:
@@ -32,7 +48,12 @@ func _process(delta: float) -> void:
 	if crouching:
 		sprite.texture = crouchTexture
 		sprite.offset = Vector2(0, 61)
+	elif reaching:
+		#sprite.texture = reachTexture # we dont have one yet
+		sprite.offset = Vector2(0, -60)
 	else:
 		sprite.texture = standTexture
 		sprite.offset = Vector2(0, 0)
-		
+
+func get_stance() -> InteractionType.Stance:
+	return currentStance

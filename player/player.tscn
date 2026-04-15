@@ -2,16 +2,44 @@
 
 [ext_resource type="Texture2D" uid="uid://bk720h8wkrjpo" path="res://player/stand.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://ciddnfa6xo1sh" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Script" uid="uid://bbb5iqjvy5g8c" path="res://player/modules/interact_module.gd" id="3_g1dw6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
-size = Vector2(84, 104)
+size = Vector2(82, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yw30f"]
+size = Vector2(94, 110)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1653520843]
 script = ExtResource("1_rkbax")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1929782218]
-shape = SubResource("RectangleShape2D_rkbax")
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1727710888]
 scale = Vector2(0.32156864, 0.32156867)
 texture = ExtResource("1_oul6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1929782218]
+shape = SubResource("RectangleShape2D_rkbax")
+
+[node name="InteractModule" type="Area2D" parent="." unique_id=428256753]
+script = ExtResource("3_g1dw6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractModule" unique_id=2057291534]
+shape = SubResource("RectangleShape2D_yw30f")
+
+[node name="InteractionUI" type="CanvasLayer" parent="InteractModule" unique_id=257963301]
+
+[node name="Label" type="Label" parent="InteractModule/InteractionUI" unique_id=1906884251]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = 193.0
+offset_right = 70.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="area_entered" from="InteractModule" to="InteractModule" method="_on_area_entered"]
+[connection signal="area_exited" from="InteractModule" to="InteractModule" method="_on_area_exited"]
