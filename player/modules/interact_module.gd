@@ -2,35 +2,69 @@ extends Area2D
 class_name InteractionModule
 
 @onready var parent : Player = self.get_parent()
-@export var HUD : CanvasLayer = null
+@export var TaskHud : CanvasLayer = null
 
-var nearbyInteractables : Array[Cleanable] = []
-var targetInteractable : Cleanable = null
+var nearbyInteractables : Array[Node] = []
+var targetInteractable : Node = null
+var currentTask : Cleanable = null
+var taskUI : Node = null
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("interact"):
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("up"):
 		if not targetInteractable: return
+		targetInteractable.interact(parent)
+	
+	if event.is_action_pressed("interact"):
+		start_task()
 		
-		var currentStance = parent.get_stance()
-		targetInteractable.clean(currentStance)
+	if event.is_action_pressed("escape"):
+		end_task()
+
+
+# start and end tasks
+func start_task() -> void:
+	if not targetInteractable: return
+	if currentTask: return
+	
+	var currentStance = parent.get_stance()
+	
+	currentTask = targetInteractable
+	taskUI = currentTask.start_task(currentStance)
+	
+	$TaskLayer.add_child(taskUI)
+	taskUI.position.y = taskUI.size.y
+	var TweenIn = create_tween()
+	TweenIn.set_trans(Tween.TRANS_QUART)
+	TweenIn.set_ease(Tween.EASE_OUT)
+	TweenIn.tween_property(taskUI, "position:y", 0.0, 1.0)
+	
+	parent.can_move(false)
+
+func end_task() -> void:
+	if currentTask:
+		currentTask.end_task()
+		currentTask = null
 		
-		HUD.set_interaction_text("Cleaning " + str(InteractionType.Stance.keys()[currentStance]))
+		var TweenOut = create_tween()
+		TweenOut.set_trans(Tween.TRANS_QUART)
+		TweenOut.tween_property(taskUI, "position:y", taskUI.size.y, 1.0)
+	parent.can_move(true)
 
 
 
 # store objects colliding with player
 func _on_area_entered(newArea: Area2D) -> void:
-	if (not newArea in nearbyInteractables) and (newArea is Cleanable):
+	if (not newArea in nearbyInteractables):
 		nearbyInteractables.append(newArea)
 		update_closest_interactable()
 		
 func _on_area_exited(newArea: Area2D) -> void:
-	if (newArea in nearbyInteractables) and (newArea is Cleanable):
+	if (newArea in nearbyInteractables):
 		nearbyInteractables.erase(newArea)
 		update_closest_interactable()
 
 func update_closest_interactable() -> void:
-	var closest : Cleanable = null
+	var closest : Node = null
 	var closestDistance : float = INF
 	
 	for object in nearbyInteractables:
@@ -44,8 +78,3 @@ func update_closest_interactable() -> void:
 			closest = object # set it as the new closest object
 		
 	targetInteractable = closest
-	
-	if targetInteractable == null:
-		HUD.set_interaction_text("")
-	else:
-		HUD.set_interaction_text("Press 'space' to clean " + str(targetInteractable.name))

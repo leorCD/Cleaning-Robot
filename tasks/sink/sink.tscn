@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dwj8dxk2orq1x"]
+
+[ext_resource type="Script" uid="uid://bbijc464j823o" path="res://scenes/sink.gd" id="1_un3s4"]
+[ext_resource type="Texture2D" uid="uid://bgm2k0dlyukn6" path="res://textures/sink.png" id="2_y3rjl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwgg1"]
+size = Vector2(42, 62)
+
+[node name="sink" type="Area2D" unique_id=178642162]
+script = ExtResource("1_un3s4")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1244583372]
+scale = Vector2(0.22580646, 0.22580644)
+texture = ExtResource("2_y3rjl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=648909737]
+shape = SubResource("RectangleShape2D_dwgg1")
+debug_color = Color(0.6625151, 0.80674607, 0.5167815, 0.41960785)

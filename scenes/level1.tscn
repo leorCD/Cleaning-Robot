@@ -1,13 +1,11 @@
 [gd_scene format=3 uid="uid://d11ibitadgo44"]
 
-[ext_resource type="Texture2D" uid="uid://dbpijmmatdkuy" path="res://textures/123.png" id="1_errlg"]
+[ext_resource type="Texture2D" uid="uid://dbpijmmatdkuy" path="res://textures/old/123.png" id="1_errlg"]
 [ext_resource type="PackedScene" uid="uid://dfayqmttyqmjf" path="res://player/player.tscn" id="1_g2h75"]
-[ext_resource type="Script" uid="uid://bbijc464j823o" path="res://scenes/sink.gd" id="2_ru4tf"]
-[ext_resource type="Texture2D" uid="uid://bgm2k0dlyukn6" path="res://textures/sink.png" id="3_dwgg1"]
+[ext_resource type="PackedScene" uid="uid://dwj8dxk2orq1x" path="res://tasks/sink/sink.tscn" id="2_dwgg1"]
+[ext_resource type="PackedScene" uid="uid://dqkg63hxeaqbb" path="res://tasks/sink/sink_standing.tscn" id="3_ru4tf"]
 [ext_resource type="PackedScene" uid="uid://ca1ti3xnqjjh2" path="res://global/4_3_fake_aspect_ratio.tscn" id="5_ru4tf"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwgg1"]
-size = Vector2(68, 100)
+[ext_resource type="PackedScene" uid="uid://ghg7h82aqn40" path="res://objects/door/door.tscn" id="6_6sh32"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2h75"]
 size = Vector2(1222, 20)
@@ -15,26 +13,14 @@ size = Vector2(1222, 20)
 [node name="Level1" type="Node2D" unique_id=2091779854]
 
 [node name="CharacterBody2D" parent="." unique_id=1653520843 instance=ExtResource("1_g2h75")]
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=563823312]
-process_callback = 0
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
+position = Vector2(-2, 60)
 
 [node name="Interactables" type="Node" parent="." unique_id=652479531]
 
-[node name="sink" type="Area2D" parent="Interactables" unique_id=927867921]
-position = Vector2(152, 45)
-script = ExtResource("2_ru4tf")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Interactables/sink" unique_id=2047311134]
-scale = Vector2(0.3655915, 0.36559147)
-texture = ExtResource("3_dwgg1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/sink" unique_id=1132493251]
-shape = SubResource("RectangleShape2D_dwgg1")
-debug_color = Color(0.6625151, 0.80674607, 0.5167815, 0.41960785)
+[node name="sink" parent="Interactables" unique_id=178642162 instance=ExtResource("2_dwgg1")]
+position = Vector2(166, 65)
+collision_layer = 2
+StandingTaskScene = ExtResource("3_ru4tf")
 
 [node name="Walls" type="Node" parent="." unique_id=1031712267]
 
@@ -52,3 +38,12 @@ scale = Vector2(1.52, 0.018750003)
 texture = ExtResource("1_errlg")
 
 [node name="4_3 fake aspect ratio" parent="." unique_id=31042625 instance=ExtResource("5_ru4tf")]
+visible = false
+
+[node name="Door" parent="." unique_id=2083739151 node_paths=PackedStringArray("leadsTo") instance=ExtResource("6_6sh32")]
+position = Vector2(-109, 57)
+leadsTo = NodePath("../Door2")
+
+[node name="Door2" parent="." unique_id=943212755 node_paths=PackedStringArray("leadsTo") instance=ExtResource("6_6sh32")]
+position = Vector2(-234, 57)
+leadsTo = NodePath("../Door")

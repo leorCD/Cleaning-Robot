@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk720h8wkrjpo"
-path="res://.godot/imported/stand.png-06be94db50c17e86d934d445d521d534.ctex"
+uid="uid://dbdh2ygijrccc"
+path="res://.godot/imported/RoombaF.png-dfb35df32a900b1f2325fde8e8ddb15c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/stand.png"
-dest_files=["res://.godot/imported/stand.png-06be94db50c17e86d934d445d521d534.ctex"]
+source_file="res://player/RoombaF.png"
+dest_files=["res://.godot/imported/RoombaF.png-dfb35df32a900b1f2325fde8e8ddb15c.ctex"]
 
 [params]
 

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ghg7h82aqn40"]
+
+[ext_resource type="Texture2D" uid="uid://dc5bdiq3yis5r" path="res://objects/door/DoorClose.png" id="1_hpvv5"]
+[ext_resource type="Script" uid="uid://tsivx6j4mltd" path="res://objects/door/door.gd" id="1_uvdjg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvdjg"]
+size = Vector2(42, 82)
+
+[node name="Door" type="Area2D" unique_id=2083739151]
+collision_layer = 2
+script = ExtResource("1_uvdjg")
+
+[node name="DoorSprite" type="Sprite2D" parent="." unique_id=1913817794]
+z_index = -10
+texture = ExtResource("1_hpvv5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1759342980]
+shape = SubResource("RectangleShape2D_uvdjg")
+debug_color = Color(3.272891e-06, 0.5948653, 0.33549508, 0.41960785)
