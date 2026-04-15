@@ -8,7 +8,7 @@ resource_name = "Fade in"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/CircleFadeShader:material:shader_parameter/radius")
+tracks/0/path = NodePath("TransitionLayer/CircleFadeShader:material:shader_parameter/radius")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -20,7 +20,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/CircleFadeShader:material:shader_parameter/Inverse")
+tracks/1/path = NodePath("TransitionLayer/CircleFadeShader:material:shader_parameter/Inverse")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -35,7 +35,7 @@ resource_name = "Fade out"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/CircleFadeShader:material:shader_parameter/Inverse")
+tracks/0/path = NodePath("TransitionLayer/CircleFadeShader:material:shader_parameter/Inverse")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -47,7 +47,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/CircleFadeShader:material:shader_parameter/radius")
+tracks/1/path = NodePath("TransitionLayer/CircleFadeShader:material:shader_parameter/radius")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -62,7 +62,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/CircleFadeShader:material:shader_parameter/radius")
+tracks/0/path = NodePath("TransitionLayer/CircleFadeShader:material:shader_parameter/radius")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -74,7 +74,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/CircleFadeShader:material:shader_parameter/Inverse")
+tracks/1/path = NodePath("TransitionLayer/CircleFadeShader:material:shader_parameter/Inverse")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -108,16 +108,16 @@ script = ExtResource("1_gfr0b")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=594942277]
 libraries/ = SubResource("AnimationLibrary_47dn4")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1620483211]
+[node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=1620483211]
+layer = 999
 
-[node name="CircleFadeShader" type="ColorRect" parent="CanvasLayer" unique_id=863913728]
-z_index = 999
+[node name="CircleFadeShader" type="ColorRect" parent="TransitionLayer" unique_id=863913728]
 material = SubResource("ShaderMaterial_gfr0b")
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = -0.35694444
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -257.0
-offset_bottom = 257.0
+anchor_bottom = 1.3569444
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true

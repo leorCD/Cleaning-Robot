@@ -19,6 +19,12 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 SceneTransition="*uid://dirks0m1ngtdm"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="machines"

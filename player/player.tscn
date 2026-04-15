@@ -27,6 +27,7 @@ script = ExtResource("3_g1dw6")
 shape = SubResource("RectangleShape2D_yw30f")
 
 [node name="InteractionUI" type="CanvasLayer" parent="InteractModule" unique_id=257963301]
+layer = 51
 
 [node name="Label" type="Label" parent="InteractModule/InteractionUI" unique_id=1906884251]
 anchors_preset = 8
@@ -40,6 +41,9 @@ offset_right = 70.0
 offset_bottom = 216.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1882239266]
+layer = 51
 
 [connection signal="area_entered" from="InteractModule" to="InteractModule" method="_on_area_entered"]
 [connection signal="area_exited" from="InteractModule" to="InteractModule" method="_on_area_exited"]

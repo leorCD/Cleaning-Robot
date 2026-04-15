@@ -5,3 +5,6 @@ res://scripts/cleanableObjects/sink.gd
 res://player/player.gd
 res://player/interactiontypes.gd
 res://player/interactiontype.gd
+res://scenes/4_3_fake_aspect_ratio.tscn
+res://global/sceneTransition.tscn
+res://global/scene_transition.gd
