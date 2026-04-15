@@ -3,7 +3,7 @@ class_name Player
 
 @onready var sprite = $Sprite2D
 
-var currentStance : InteractionType.Stance = InteractionType.Stance.STAND
+var currentStance : InteractionType.Stance = InteractionType.Stance.STANDING # default stance
 
 var gravity : float = 9.81 * 5000
 var speed : int = 2 * 5000
@@ -32,11 +32,11 @@ func _physics_process(delta: float) -> void:
 	#currentStance = InteractionType.Stance.CROUCH if crouching else InteractionType.Stance.STAND
 	# this above code was replaced since theres 3 stances and not 2
 	if crouching:
-		currentStance = InteractionType.Stance.CROUCH
+		currentStance = InteractionType.Stance.CROUCHING
 	elif reaching:
 		currentStance = InteractionType.Stance.REACHING
 	else:
-		currentStance = InteractionType.Stance.STAND
+		currentStance = InteractionType.Stance.STANDING
 
 	move_and_slide()
 

@@ -6,7 +6,7 @@ class_name BatteryModule
 
 var currBattery : float = 100
 var maxBattery : int = 100 # just 100 %
-var batteryDepletionRate : float = 100.0 # per second
+var batteryDepletionRate : float = 2.0 # per second
 
 func _physics_process(delta: float) -> void:
 	if parent.direction and (not parent.velocity == Vector2.ZERO):
