@@ -5,6 +5,9 @@
 [ext_resource type="Script" uid="uid://bbb5iqjvy5g8c" path="res://player/modules/interact_module.gd" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://bk30v3cqra17j" path="res://player/modules/battery_module.gd" id="3_qjkh3"]
 [ext_resource type="Script" uid="uid://dlax8vfao6kk6" path="res://player/modules/hud_module.gd" id="4_yw30f"]
+[ext_resource type="Texture2D" uid="uid://dbdh2ygijrccc" path="res://player/RoombaF.png" id="6_g6k8r"]
+[ext_resource type="Script" uid="uid://crh2i3ux772w2" path="res://player/player_animator.gd" id="7_boad6"]
+[ext_resource type="Texture2D" uid="uid://dcw5aenhv68b8" path="res://player/RoombaB.png" id="7_rgyib"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
 size = Vector2(52, 76)
@@ -27,6 +30,93 @@ msdf_pixel_range = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_rgyib"]
 font = SubResource("SystemFont_boad6")
+
+[sub_resource type="Animation" id="Animation_boad6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qjkh3")]
+}
+
+[sub_resource type="Animation" id="Animation_rgyib"]
+resource_name = "crouching"
+loop_mode = 1
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_g6k8r")]
+}
+
+[sub_resource type="Animation" id="Animation_2ieo8"]
+resource_name = "door_enter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_rgyib")]
+}
+
+[sub_resource type="Animation" id="Animation_8t03j"]
+resource_name = "door_exit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_g6k8r")]
+}
+
+[sub_resource type="Animation" id="Animation_hg6s5"]
+resource_name = "standing"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qjkh3")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8t03j"]
+_data = {
+&"RESET": SubResource("Animation_boad6"),
+&"crouching": SubResource("Animation_rgyib"),
+&"door_enter": SubResource("Animation_2ieo8"),
+&"door_exit": SubResource("Animation_8t03j"),
+&"standing": SubResource("Animation_hg6s5")
+}
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1653520843]
 script = ExtResource("1_rkbax")
@@ -90,5 +180,11 @@ grow_horizontal = 2
 grow_vertical = 0
 label_settings = SubResource("LabelSettings_rgyib")
 
+[node name="AnimationModule" type="AnimationPlayer" parent="." unique_id=1491430404]
+libraries/ = SubResource("AnimationLibrary_8t03j")
+script = ExtResource("7_boad6")
+
+[connection signal="state_changed" from="." to="AnimationModule" method="_on_state_changed"]
 [connection signal="area_entered" from="InteractModule" to="InteractModule" method="_on_area_entered"]
 [connection signal="area_exited" from="InteractModule" to="InteractModule" method="_on_area_exited"]
+[connection signal="animation_finished" from="AnimationModule" to="AnimationModule" method="_on_animation_finished"]

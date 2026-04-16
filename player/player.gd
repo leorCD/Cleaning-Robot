@@ -4,18 +4,23 @@ class_name Player
 @onready var sprite = $Sprite2D
 @onready var camera = $Camera2D
 
-var currentStance : InteractionType.Stance = InteractionType.Stance.STANDING # default stance
+signal state_changed
+var movementState : States.MovementState = States.MovementState.STANDING # default State
+var actionState : States.ActionState = States.ActionState.NONE # default State
 
-var gravity : float = 9.81 * 5000
+var gravity : float = 9.81 * 100
+var direction : float
 var speed : int = 2 * 5000
 var crouching : bool = false
 var reaching : bool = false
-var direction : float
 var alive : bool = true
 var freezeMovement : bool = false
 
 func _physics_process(delta: float) -> void:
-	if (not alive) or freezeMovement: return
+	if (not alive):
+		return
+	if freezeMovement:
+		return
 	
 	# apply gravity
 	if not self.is_on_floor():
@@ -30,42 +35,26 @@ func _physics_process(delta: float) -> void:
 	crouching = Input.is_action_pressed("down")
 	reaching = Input.is_action_pressed("up")
 	
-	# set current cleaning stance
-	#currentStance = InteractionType.Stance.CROUCH if crouching else InteractionType.Stance.STAND
-	# this above code was replaced since theres 3 stances and not 2
+	# set current movement state (for cleaning tasks)
 	if crouching:
-		change_sprite("crouching")
-		currentStance = InteractionType.Stance.CROUCHING
+		movementState = States.MovementState.CROUCHING
 	elif reaching:
-		change_sprite("reaching")
-		currentStance = InteractionType.Stance.REACHING
+		movementState = States.MovementState.REACHING
 	else:
-		change_sprite("standing")
-		currentStance = InteractionType.Stance.STANDING
-
+		movementState = States.MovementState.STANDING
+	
 	move_and_slide()
 
-var crouchingTexture = preload("res://player/RoombaF.png")
-var standingTexture = preload("res://player/RoombaS.png")
 func _process(_delta: float) -> void:
-	if (not alive) or freezeMovement: return
+	if (not alive) or freezeMovement:
+		return
 	
 	if direction == -1:
 		sprite.flip_h = true
 	elif direction == 1:
 		sprite.flip_h = false
 
-func change_sprite(newSpriteName) -> void:
-	match newSpriteName.to_lower():
-		"crouching":
-			sprite.texture = crouchingTexture
-		"standing":
-			sprite.texture = standingTexture
-		#"Reaching":
-			#sprite.texture = crouchTexture
 
-func get_stance() -> InteractionType.Stance:
-	return currentStance
 
 func die() -> void:
 	self.alive = false

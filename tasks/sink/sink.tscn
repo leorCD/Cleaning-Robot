@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dwj8dxk2orq1x"]
 
-[ext_resource type="Script" uid="uid://bbijc464j823o" path="res://scenes/sink.gd" id="1_un3s4"]
+[ext_resource type="Script" uid="uid://bbijc464j823o" path="res://tasks/sink/sink.gd" id="1_un3s4"]
 [ext_resource type="Texture2D" uid="uid://bgm2k0dlyukn6" path="res://textures/sink.png" id="2_y3rjl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwgg1"]

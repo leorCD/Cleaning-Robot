@@ -1,35 +1,52 @@
 extends Area2D
 class_name InteractionModule
 
-@onready var parent : Player = self.get_parent()
+@onready var player : Player = self.get_parent()
 @export var TaskHud : CanvasLayer = null
 
 var nearbyInteractables : Array[Node] = []
 var targetInteractable : Node = null
+var isBusy : bool = false
 var currentTask : Cleanable = null
 var taskUI : Node = null
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("up"):
-		if not targetInteractable: return
-		targetInteractable.interact(parent)
-	
-	if event.is_action_pressed("interact"):
-		start_task()
-		
 	if event.is_action_pressed("escape"):
-		end_task()
+		if currentTask:
+			end_task()
+		isBusy = false
+	
+	if isBusy: return # everything past this point cannot be reached if alraedy interacting
+	
+	if event.is_action_pressed("up") and (not isBusy):
+		if not (targetInteractable and targetInteractable is Interactable):
+			return # if no interactable and target isn't an interactable
+		if isBusy:
+			return
+			
+		isBusy = true
+		await targetInteractable.interact(player)
+		isBusy = false
+	
+	if event.is_action_pressed("spacebar"):
+		if isBusy:
+			return
+		if start_task():
+			isBusy = true
+		
 
 
 # start and end tasks
-func start_task() -> void:
-	if not targetInteractable: return
-	if currentTask: return
+func start_task() -> bool:
+	if not targetInteractable:
+		return false # if there isn't any object to interact with
+	if currentTask:
+		return false # if they're already doing a task
 	
-	var currentStance = parent.get_stance()
+	var movementState = player.movementState
 	
 	currentTask = targetInteractable
-	taskUI = currentTask.start_task(currentStance)
+	taskUI = currentTask.start_task(movementState)
 	
 	$TaskLayer.add_child(taskUI)
 	taskUI.position.y = taskUI.size.y
@@ -38,17 +55,20 @@ func start_task() -> void:
 	TweenIn.set_ease(Tween.EASE_OUT)
 	TweenIn.tween_property(taskUI, "position:y", 0.0, 1.0)
 	
-	parent.can_move(false)
+	player.can_move(false)
+	return true
 
 func end_task() -> void:
-	if currentTask:
-		currentTask.end_task()
-		currentTask = null
-		
-		var TweenOut = create_tween()
-		TweenOut.set_trans(Tween.TRANS_QUART)
-		TweenOut.tween_property(taskUI, "position:y", taskUI.size.y, 1.0)
-	parent.can_move(true)
+	if not currentTask:
+		return
+	
+	currentTask.end_task()
+	currentTask = null
+	
+	var TweenOut = create_tween()
+	TweenOut.set_trans(Tween.TRANS_QUART)
+	TweenOut.tween_property(taskUI, "position:y", taskUI.size.y, 1.0)
+	player.can_move(true)
 
 
 

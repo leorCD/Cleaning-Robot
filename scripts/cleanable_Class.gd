@@ -7,24 +7,24 @@ class_name Cleanable
 @export var ReachingTaskScene : PackedScene = null
 var active_task : Node = null
 
-func start_task(stance : InteractionType.Stance) -> Node:
+func start_task(State : States.MovementState) -> Node:
 	var task_scene : PackedScene = null
 	
-	match stance: # match the value of stance to one of the listed values
-		InteractionType.Stance.STANDING: # standing value
+	match State: # match the value of State to one of the listed values
+		States.MovementState.STANDING: # standing value
 			task_scene = StandingTaskScene
 			#start_standing_task()
-		InteractionType.Stance.CROUCHING: # crouching value
+		States.MovementState.CROUCHING: # crouching value
 			task_scene = CrouchingTaskScene
 			#start_crouching_task()
-		InteractionType.Stance.REACHING: # reaching value
+		States.MovementState.REACHING: # reaching value
 			task_scene = ReachingTaskScene
 			#start_reaching_task()
 		_: # default case
 			print("error - something bad happened fix it")
 	
 	if task_scene == null:
-		push_warning("no task assigned for " + InteractionType.Stance.keys()[stance] + " on " + name)
+		push_warning("no task assigned for " + States.MovementState.keys()[State] + " on " + name)
 		return
 	
 	active_task = task_scene.instantiate()
