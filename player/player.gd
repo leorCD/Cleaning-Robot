@@ -16,6 +16,19 @@ var reaching : bool = false
 var alive : bool = true
 var freezeMovement : bool = false
 
+
+
+func _ready() -> void:
+	randomize() # essentially resets the generator seed, otherwise randf would give the same random number every time
+	
+	var h = randf()                     # any hue
+	var s = randf_range(0.4, 0.8)       # avoid gray (0.0) or neon (1.0)
+	var v = randf_range(0.5, 0.9)       # avoid too dark (0.0) and too bright (1.0)
+	var hsvColor = Color.from_hsv(h, s, v)
+	
+	var colorShader : ShaderMaterial = sprite.material
+	colorShader.set_shader_parameter("newColor", hsvColor)
+
 func _physics_process(delta: float) -> void:
 	if (not alive):
 		return

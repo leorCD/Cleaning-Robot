@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dirks0m1ngtdm"]
 
-[ext_resource type="Shader" uid="uid://cacjwq6d4pdvc" path="res://shaders/circle fade.gdshader" id="1_8yd64"]
+[ext_resource type="Shader" uid="uid://cacjwq6d4pdvc" path="res://shaders/circle_transition.gdshader" id="1_8yd64"]
 [ext_resource type="Script" uid="uid://cejwpup611wer" path="res://global/scene_transition.gd" id="1_gfr0b"]
 
 [sub_resource type="Animation" id="Animation_12vek"]

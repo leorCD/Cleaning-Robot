@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dfayqmttyqmjf"]
 
 [ext_resource type="Script" uid="uid://ciddnfa6xo1sh" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Shader" uid="uid://c1svveuntwhts" path="res://shaders/bot_coloration.gdshader" id="2_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://b8fhbp08e6q6d" path="res://player/RoombaS.png" id="2_qjkh3"]
 [ext_resource type="Script" uid="uid://bbb5iqjvy5g8c" path="res://player/modules/interact_module.gd" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://bk30v3cqra17j" path="res://player/modules/battery_module.gd" id="3_qjkh3"]
@@ -8,6 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://dbdh2ygijrccc" path="res://player/RoombaF.png" id="6_g6k8r"]
 [ext_resource type="Script" uid="uid://crh2i3ux772w2" path="res://player/player_animator.gd" id="7_boad6"]
 [ext_resource type="Texture2D" uid="uid://dcw5aenhv68b8" path="res://player/RoombaB.png" id="7_rgyib"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8t03j"]
+shader = ExtResource("2_hg6s5")
+shader_parameter/newColor = Color(0.7254902, 0.7019608, 0.654902, 1)
+shader_parameter/targetColor = Color(0.7254902, 0.7019608, 0.654902, 1)
+shader_parameter/roughness = 0.01
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
 size = Vector2(52, 76)
@@ -129,11 +136,12 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1727710888]
+material = SubResource("ShaderMaterial_8t03j")
 texture = ExtResource("2_qjkh3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1929782218]
 shape = SubResource("RectangleShape2D_rkbax")
-debug_color = Color(0.79607844, 0, 0.15294118, 0)
+debug_color = Color(1, 0, 0.15294118, 0)
 
 [node name="BatteryModule" type="Node2D" parent="." unique_id=435266191 node_paths=PackedStringArray("batteryLabel")]
 script = ExtResource("3_qjkh3")
@@ -146,6 +154,7 @@ TaskHud = NodePath("TaskLayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractModule" unique_id=2057291534]
 shape = SubResource("RectangleShape2D_yw30f")
+debug_color = Color(0.36078432, 1, 0.2627451, 0)
 
 [node name="TaskLayer" type="CanvasLayer" parent="InteractModule" unique_id=2113358428]
 
