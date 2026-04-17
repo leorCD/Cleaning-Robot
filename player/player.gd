@@ -51,10 +51,13 @@ func _physics_process(delta: float) -> void:
 	# set current movement state (for cleaning tasks)
 	if crouching:
 		movementState = States.MovementState.CROUCHING
+		camera.position.y = 15
 	elif reaching:
 		movementState = States.MovementState.REACHING
+		camera.position.y = -15
 	else:
 		movementState = States.MovementState.STANDING
+		camera.position.y = 0
 	
 	move_and_slide()
 
@@ -84,4 +87,5 @@ func can_move(canMove : bool) -> void:
 		newZoom = 6.0
 	else:
 		newZoom = 2.0
+	camera.position = Vector2.ZERO
 	zoomIn.tween_property(camera, "zoom", Vector2(newZoom, newZoom), 1.0)
