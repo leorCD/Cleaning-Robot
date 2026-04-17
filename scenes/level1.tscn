@@ -13,7 +13,7 @@ size = Vector2(1222, 20)
 [node name="Level1" type="Node2D" unique_id=2091779854]
 
 [node name="CharacterBody2D" parent="." unique_id=1653520843 instance=ExtResource("1_g2h75")]
-position = Vector2(-2, 60)
+position = Vector2(-2, 58)
 
 [node name="Interactables" type="Node" parent="." unique_id=652479531]
 

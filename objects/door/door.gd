@@ -16,7 +16,10 @@ func interact(player : Player) -> void:
 	await enter_door(player)
 	isTransitioning = false
 
-
+func place_player(player) -> void:
+	var bottomOfDoor = leadsTo.global_position + Vector2(0, (leadsTo.get_node("CollisionShape2D").shape.size.y / 2))
+	var playerHeight = -Vector2(0, player.get_node("CollisionShape2D").shape.size.y / 2)
+	player.global_position = bottomOfDoor + playerHeight
 
 func change_texture(texture : Texture2D) -> void:
 	$DoorSprite.texture = texture
@@ -33,7 +36,7 @@ func enter_door(player: Player) -> void:
 	await fadeAway.finished
 	
 	change_texture(closeTexture)
-	player.global_position = leadsTo.global_position
+	place_player(player)
 	
 	await leadsTo.exit_door(player)
 
