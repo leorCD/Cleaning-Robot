@@ -15,7 +15,8 @@ func change_scenes(scene_path : String) -> void:
 	await open()
 
 func create_fake_aspect_ratio() -> Node:
-	if existing: return
+	if existing:
+		return existing
 	
 	var newFake = fakeAspectRatio.instantiate()
 	return newFake

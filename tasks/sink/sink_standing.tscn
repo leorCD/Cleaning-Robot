@@ -1,36 +1,88 @@
 [gd_scene format=3 uid="uid://dqkg63hxeaqbb"]
 
-[node name="sink_standing" type="Control" unique_id=260489336]
+[ext_resource type="Script" uid="uid://bgo6cjvqfd76b" path="res://tasks/drawing.gd" id="1_5dkho"]
+[ext_resource type="Script" uid="uid://b5hd7uppatkeq" path="res://tasks/mask.gd" id="2_jygob"]
+[ext_resource type="Texture2D" uid="uid://disawgklq2teu" path="res://textures/image (1).png" id="2_wue4u"]
+[ext_resource type="Shader" uid="uid://cxjlgkmb0b7h3" path="res://tasks/dirt_shader.gdshader" id="3_no800"]
+[ext_resource type="Texture2D" uid="uid://io0a4v5lel6s" path="res://textures/brown-dirt-minecraft-pattern_thumb.jpg" id="4_2ceky"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wue4u"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k4aye"]
+shader = ExtResource("3_no800")
+shader_parameter/mask_texture = ExtResource("4_2ceky")
+
+[node name="sink_standing" type="Control" unique_id=812949551]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5dkho")
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="Panel" parent="." unique_id=1179027287]
+[node name="Canvas" type="Panel" parent="." unique_id=1179027287]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.3046875
-anchor_top = 0.10277778
-anchor_right = 0.6953125
-anchor_bottom = 0.8972222
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 387.0
+offset_top = 46.755
+offset_right = -387.0
+offset_bottom = -137.29993
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wue4u")
+
+[node name="background" type="TextureRect" parent="Canvas" unique_id=161536709]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wue4u")
+expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="." unique_id=1064318430]
+[node name="dirt" type="TextureRect" parent="Canvas" unique_id=427089324]
+material = SubResource("ShaderMaterial_k4aye")
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "clean ts"
+texture = ExtResource("4_2ceky")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Canvas" unique_id=867920979]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="Canvas/SubViewportContainer" unique_id=1888957231]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(506, 535)
+render_target_clear_mode = 1
+render_target_update_mode = 4
+
+[node name="drawing" type="Node2D" parent="Canvas/SubViewportContainer/SubViewport" unique_id=122328963]
+script = ExtResource("2_jygob")

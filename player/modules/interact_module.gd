@@ -38,7 +38,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # start and end tasks
 func start_task() -> bool:
-	if not targetInteractable:
+	if not (targetInteractable and targetInteractable is Cleanable):
 		return false # if there isn't any object to interact with
 	if currentTask:
 		return false # if they're already doing a task

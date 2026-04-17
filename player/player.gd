@@ -4,7 +4,6 @@ class_name Player
 @onready var sprite = $Sprite2D
 @onready var camera = $Camera2D
 
-signal state_changed
 var movementState : States.MovementState = States.MovementState.STANDING # default State
 var actionState : States.ActionState = States.ActionState.NONE # default State
 

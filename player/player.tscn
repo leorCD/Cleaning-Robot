@@ -193,7 +193,6 @@ label_settings = SubResource("LabelSettings_rgyib")
 libraries/ = SubResource("AnimationLibrary_8t03j")
 script = ExtResource("7_boad6")
 
-[connection signal="state_changed" from="." to="AnimationModule" method="_on_state_changed"]
 [connection signal="area_entered" from="InteractModule" to="InteractModule" method="_on_area_entered"]
 [connection signal="area_exited" from="InteractModule" to="InteractModule" method="_on_area_exited"]
 [connection signal="animation_finished" from="AnimationModule" to="AnimationModule" method="_on_animation_finished"]

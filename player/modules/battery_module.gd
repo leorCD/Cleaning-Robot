@@ -9,7 +9,7 @@ var maxBattery : int = 100 # just 100 %
 var batteryDepletionRate : float = 2.0 # per second
 
 func _physics_process(delta: float) -> void:
-	if player.direction and (not player.velocity == Vector2.ZERO):
+	if player.direction and not player.freezeMovement:
 		subtract_battery(batteryDepletionRate * delta)
 	
 	if currBattery <= 0:
