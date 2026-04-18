@@ -47,15 +47,22 @@ func start_task() -> bool:
 	
 	currentTask = targetInteractable
 	taskUI = currentTask.start_task(movementState)
+	if not taskUI:
+		return false
+	
+	player.can_move(false)
 	
 	$TaskLayer.add_child(taskUI)
 	taskUI.position.y = taskUI.size.y
-	var TweenIn = create_tween()
-	TweenIn.set_trans(Tween.TRANS_QUART)
-	TweenIn.set_ease(Tween.EASE_OUT)
-	TweenIn.tween_property(taskUI, "position:y", 0.0, 1.0)
+	var TweenTaskIn = create_tween()
+	TweenTaskIn.set_trans(Tween.TRANS_QUART)
+	TweenTaskIn.set_ease(Tween.EASE_OUT)
+	TweenTaskIn.tween_property(taskUI, "position:y", 0.0, 1.0)
 	
-	player.can_move(false)
+	$TaskLayer/TranslucentLayer.visible = true
+	var TweenLayerIn = create_tween()
+	TweenLayerIn.tween_property($TaskLayer/TranslucentLayer, "modulate:a", 0.8, 0.5)
+	
 	return true
 
 func end_task() -> void:
@@ -64,11 +71,22 @@ func end_task() -> void:
 	
 	currentTask.end_task()
 	currentTask = null
-	
-	var TweenOut = create_tween()
-	TweenOut.set_trans(Tween.TRANS_QUART)
-	TweenOut.tween_property(taskUI, "position:y", taskUI.size.y, 1.0)
 	player.can_move(true)
+	
+	if not taskUI:
+		return
+	
+	var TweenTaskOut = create_tween()
+	TweenTaskOut.set_trans(Tween.TRANS_QUART)
+	TweenTaskOut.tween_property(taskUI, "position:y", taskUI.size.y, 1.0)
+	taskUI.queue_free()
+	taskUI = null
+	
+	var TweenLayerIn = create_tween()
+	TweenLayerIn.tween_property($TaskLayer/TranslucentLayer, "modulate:a", 0.0, 0.5)
+	await TweenLayerIn.finished
+	$TaskLayer/TranslucentLayer.visible = false
+	
 
 
 

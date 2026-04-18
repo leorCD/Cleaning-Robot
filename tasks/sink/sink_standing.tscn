@@ -8,15 +8,34 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wue4u"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k4aye"]
 shader = ExtResource("3_no800")
 shader_parameter/mask_texture = ExtResource("4_2ceky")
+
+[sub_resource type="SystemFont" id="SystemFont_2ceky"]
+font_names = PackedStringArray("Star Choco")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_no800"]
+font = SubResource("SystemFont_2ceky")
+font_size = 70
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_k4aye"]
+font_names = PackedStringArray("Star Choco")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_y1b2w"]
+font = SubResource("SystemFont_k4aye")
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="sink_standing" type="Control" unique_id=812949551]
 layout_mode = 3
@@ -30,59 +49,81 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Canvas" type="Panel" parent="." unique_id=1179027287]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 387.0
-offset_top = 46.755
-offset_right = -387.0
-offset_bottom = -137.29993
+anchors_preset = -1
+anchor_left = 0.30234376
+anchor_top = 0.0649375
+anchor_right = 0.6976563
+anchor_bottom = 0.80930567
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_wue4u")
+metadata/_edit_use_anchors_ = true
 
-[node name="background" type="TextureRect" parent="Canvas" unique_id=161536709]
+[node name="MarginContainer" type="MarginContainer" parent="Canvas" unique_id=1592397987]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="background" type="TextureRect" parent="Canvas/MarginContainer" unique_id=161536709]
+layout_mode = 2
 texture = ExtResource("2_wue4u")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="dirt" type="TextureRect" parent="Canvas" unique_id=427089324]
+[node name="dirt" type="TextureRect" parent="Canvas/MarginContainer" unique_id=427089324]
 material = SubResource("ShaderMaterial_k4aye")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 texture = ExtResource("4_2ceky")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Canvas" unique_id=867920979]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Canvas/MarginContainer" unique_id=867920979]
 z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 stretch = true
 metadata/_edit_use_anchors_ = true
 
-[node name="SubViewport" type="SubViewport" parent="Canvas/SubViewportContainer" unique_id=1888957231]
+[node name="SubViewport" type="SubViewport" parent="Canvas/MarginContainer/SubViewportContainer" unique_id=1888957231]
 disable_3d = true
 transparent_bg = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
-size = Vector2i(506, 535)
+size = Vector2i(498, 527)
 render_target_clear_mode = 1
 render_target_update_mode = 4
 
-[node name="drawing" type="Node2D" parent="Canvas/SubViewportContainer/SubViewport" unique_id=122328963]
+[node name="drawing" type="Node2D" parent="Canvas/MarginContainer/SubViewportContainer/SubViewport" unique_id=122328963]
 script = ExtResource("2_jygob")
+
+[node name="TaskFinishText" type="VBoxContainer" parent="." unique_id=359289161]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.30546874
+anchor_top = 0.13055556
+anchor_right = 0.69453126
+anchor_bottom = 0.28055555
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TaskFinishText" unique_id=1426304695]
+layout_mode = 2
+text = "Task finished!!!"
+label_settings = SubResource("LabelSettings_no800")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="TaskFinishText" unique_id=2089014795]
+layout_mode = 2
+text = "( press 'esc' to exit )"
+label_settings = SubResource("LabelSettings_y1b2w")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true

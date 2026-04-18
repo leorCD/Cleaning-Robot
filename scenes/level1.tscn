@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dbpijmmatdkuy" path="res://textures/old/123.png" id="1_errlg"]
 [ext_resource type="PackedScene" uid="uid://dfayqmttyqmjf" path="res://player/player.tscn" id="1_g2h75"]
 [ext_resource type="PackedScene" uid="uid://dwj8dxk2orq1x" path="res://tasks/sink/sink.tscn" id="2_dwgg1"]
+[ext_resource type="Script" uid="uid://bw4wn5pphs17g" path="res://tasks/cleanable_Class.gd" id="3_ejswk"]
 [ext_resource type="PackedScene" uid="uid://dqkg63hxeaqbb" path="res://tasks/sink/sink_standing.tscn" id="3_ru4tf"]
 [ext_resource type="PackedScene" uid="uid://ca1ti3xnqjjh2" path="res://global/4_3_fake_aspect_ratio.tscn" id="5_ru4tf"]
 [ext_resource type="PackedScene" uid="uid://ghg7h82aqn40" path="res://objects/door/door.tscn" id="6_6sh32"]
@@ -15,12 +16,23 @@ size = Vector2(1222, 20)
 [node name="CharacterBody2D4" parent="." unique_id=577084683 instance=ExtResource("1_g2h75")]
 position = Vector2(8, -43)
 
-[node name="Interactables" type="Node" parent="." unique_id=652479531]
+[node name="Tasks" type="Node" parent="." unique_id=32572920]
 
-[node name="sink" parent="Interactables" unique_id=178642162 instance=ExtResource("2_dwgg1")]
+[node name="sink" parent="Tasks" unique_id=178642162 instance=ExtResource("2_dwgg1")]
 position = Vector2(166, 65)
 collision_layer = 2
+script = ExtResource("3_ejswk")
 StandingTaskScene = ExtResource("3_ru4tf")
+
+[node name="Interactables" type="Node" parent="." unique_id=652479531]
+
+[node name="Door" parent="Interactables" unique_id=2083739151 node_paths=PackedStringArray("leadsTo") instance=ExtResource("6_6sh32")]
+position = Vector2(-109, 57)
+leadsTo = NodePath("../Door2")
+
+[node name="Door2" parent="Interactables" unique_id=943212755 node_paths=PackedStringArray("leadsTo") instance=ExtResource("6_6sh32")]
+position = Vector2(-234, 57)
+leadsTo = NodePath("../Door")
 
 [node name="Walls" type="Node" parent="." unique_id=1031712267]
 
@@ -39,11 +51,3 @@ texture = ExtResource("1_errlg")
 
 [node name="4_3 fake aspect ratio" parent="." unique_id=31042625 instance=ExtResource("5_ru4tf")]
 visible = false
-
-[node name="Door" parent="." unique_id=2083739151 node_paths=PackedStringArray("leadsTo") instance=ExtResource("6_6sh32")]
-position = Vector2(-109, 57)
-leadsTo = NodePath("../Door2")
-
-[node name="Door2" parent="." unique_id=943212755 node_paths=PackedStringArray("leadsTo") instance=ExtResource("6_6sh32")]
-position = Vector2(-234, 57)
-leadsTo = NodePath("../Door")

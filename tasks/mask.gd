@@ -6,12 +6,14 @@ func _draw() -> void:
 	if drawPosition == Vector2.ZERO:
 		return
 	
-	self.draw_rect(
-		Rect2(drawPosition, Vector2(40, 40)),
-		Color(1, 1, 1, 1),
-		true
+	self.draw_circle(
+		drawPosition, # position
+		randi_range(40, 60), # radius
+		Color.WHITE # color
 	)
 
 func draw_at(pos : Vector2) -> void:
+	if drawPosition == pos:
+		return
 	drawPosition = pos
 	queue_redraw()
