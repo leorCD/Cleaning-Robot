@@ -6,11 +6,11 @@ var existing = null
 func change_scenes(scene_path : String) -> void:
 	await close()
 	
-	existing = create_fake_aspect_ratio()
 	
 	get_tree().change_scene_to_file(scene_path)
 	
-	get_tree().root.add_child(existing)
+	#existing = create_fake_aspect_ratio()
+	#get_tree().root.add_child(existing)
 	
 	await open()
 

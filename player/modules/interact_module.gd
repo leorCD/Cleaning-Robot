@@ -46,28 +46,53 @@ func start_task() -> bool:
 	
 	var movementState = player.movementState
 	
-	currentTask = targetInteractable
-	taskUI = currentTask.start_task(movementState)
+	taskUI = targetInteractable.start_task(movementState)
 	if not taskUI:
 		return false
 		
+	currentTask = targetInteractable
 	HUDModule.set_interaction_text("")
-	
 	player.can_move(false)
+	tween_task()
 	
+	return true
+
+func tween_task() -> void:
+	taskUI.get_node("Canvas/Panel/Label").visible = true
+	taskUI.get_node("Canvas/Panel/MarginContainer").visible = false
+	$TaskLayer/TranslucentLayer.visible = true
+	
+	
+		# darken everything else
+	var TweenLayerIn = create_tween()
+	TweenLayerIn.tween_property($TaskLayer/TranslucentLayer, "modulate:a", 0.8, 0.5)
+	
+		# tween into center
+	taskUI.get_node("Canvas/Panel").self_modulate.a = 1.0
 	$TaskLayer.add_child(taskUI)
 	taskUI.position.y = taskUI.size.y
 	var TweenTaskIn = create_tween()
 	TweenTaskIn.set_trans(Tween.TRANS_QUART)
 	TweenTaskIn.set_ease(Tween.EASE_OUT)
 	TweenTaskIn.tween_property(taskUI, "position:y", 0.0, 1.0)
-	
-	$TaskLayer/TranslucentLayer.visible = true
-	var TweenLayerIn = create_tween()
-	TweenLayerIn.tween_property($TaskLayer/TranslucentLayer, "modulate:a", 0.8, 0.5)
-	
-	return true
 
+	# after tween into center finishes
+	await TweenTaskIn.finished
+	taskUI.get_node("Canvas/Panel/Label").text = "FEED ONLINE"
+	
+	# after 0.5 seconds
+	await get_tree().create_timer(0.5).timeout
+		
+		# disable black screen
+	var DisableBlack = create_tween()
+	DisableBlack.set_trans(Tween.TRANS_QUART)
+	DisableBlack.tween_property(taskUI.get_node("Canvas/Panel"), "self_modulate:a", 0.0, 0.1)
+	taskUI.get_node("Canvas/Panel/Label").visible = false
+		# show task
+	taskUI.get_node("Canvas/Panel/MarginContainer").visible = true
+		# disable loading text
+	taskUI.get_node("Canvas/Panel/Label").visible = false
+	
 func end_task() -> void:
 	if not currentTask:
 		return
@@ -119,4 +144,4 @@ func update_closest_interactable() -> void:
 			closest = object # set it as the new closest object
 		
 	targetInteractable = closest
-	HUDModule.set_interaction_text("Press 'space' to clean " + str(targetInteractable.name))
+	HUDModule.set_interaction_text("Press 'space' to clean " + str(targetInteractable))

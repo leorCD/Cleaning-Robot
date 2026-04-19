@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ca1ti3xnqjjh2"]
 
 [node name="4_3 fake aspect ratio" type="CanvasLayer" unique_id=31042625]
-layer = 50
+layer = 10
 
 [node name="screen" type="Control" parent="." unique_id=188420487]
 layout_mode = 3

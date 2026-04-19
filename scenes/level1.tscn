@@ -5,12 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://dwj8dxk2orq1x" path="res://tasks/sink/sink.tscn" id="2_dwgg1"]
 [ext_resource type="Script" uid="uid://bw4wn5pphs17g" path="res://tasks/cleanable_Class.gd" id="3_ejswk"]
 [ext_resource type="PackedScene" uid="uid://dqkg63hxeaqbb" path="res://tasks/sink/sink_standing.tscn" id="3_ru4tf"]
+[ext_resource type="PackedScene" uid="uid://ca1ti3xnqjjh2" path="res://global/4_3_fake_aspect_ratio.tscn" id="5_ru4tf"]
 [ext_resource type="PackedScene" uid="uid://ghg7h82aqn40" path="res://objects/door/door.tscn" id="6_6sh32"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2h75"]
 size = Vector2(1222, 20)
 
 [node name="Level1" type="Node2D" unique_id=2091779854]
+
+[node name="4_3 fake aspect ratio" parent="." unique_id=31042625 instance=ExtResource("5_ru4tf")]
 
 [node name="player" parent="." unique_id=577084683 instance=ExtResource("1_g2h75")]
 position = Vector2(-2, 59)

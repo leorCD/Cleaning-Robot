@@ -278,6 +278,7 @@ shape = SubResource("RectangleShape2D_yw30f")
 debug_color = Color(0.36078432, 1, 0.2627451, 0)
 
 [node name="TaskLayer" type="CanvasLayer" parent="InteractModule" unique_id=2113358428]
+layer = 15
 
 [node name="TranslucentLayer" type="Panel" parent="InteractModule/TaskLayer" unique_id=525046468]
 visible = false
@@ -290,7 +291,7 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="HUDModule" type="CanvasLayer" parent="." unique_id=1387734032]
-layer = 51
+layer = 11
 script = ExtResource("4_yw30f")
 
 [node name="interaction" type="Label" parent="HUDModule" unique_id=1906884251]
