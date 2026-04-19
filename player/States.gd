@@ -2,9 +2,10 @@ class_name States
 
 enum MovementState{ # looping
 	NONE,
-	STANDING,
-	CROUCHING,
-	REACHING,
+	STAND,
+	CROUCH,
+	REACH,
+	WALK,
 }
 
 enum ActionState{ # one shot animations

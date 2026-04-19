@@ -2,13 +2,16 @@
 
 [ext_resource type="Script" uid="uid://ciddnfa6xo1sh" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Shader" uid="uid://c1svveuntwhts" path="res://shaders/bot_coloration.gdshader" id="2_hg6s5"]
-[ext_resource type="Texture2D" uid="uid://b8fhbp08e6q6d" path="res://player/RoombaS.png" id="2_qjkh3"]
+[ext_resource type="Texture2D" uid="uid://b8fhbp08e6q6d" path="res://player/textures/RoombaS.png" id="2_qjkh3"]
 [ext_resource type="Script" uid="uid://bbb5iqjvy5g8c" path="res://player/modules/interact_module.gd" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://bk30v3cqra17j" path="res://player/modules/battery_module.gd" id="3_qjkh3"]
 [ext_resource type="Script" uid="uid://dlax8vfao6kk6" path="res://player/modules/hud_module.gd" id="4_yw30f"]
-[ext_resource type="Texture2D" uid="uid://dbdh2ygijrccc" path="res://player/RoombaF.png" id="6_g6k8r"]
+[ext_resource type="Texture2D" uid="uid://dbdh2ygijrccc" path="res://player/textures/RoombaF.png" id="6_g6k8r"]
 [ext_resource type="Script" uid="uid://crh2i3ux772w2" path="res://player/player_animator.gd" id="7_boad6"]
-[ext_resource type="Texture2D" uid="uid://dcw5aenhv68b8" path="res://player/RoombaB.png" id="7_rgyib"]
+[ext_resource type="Texture2D" uid="uid://cxec2mjmw4spv" path="res://player/textures/battery.png" id="7_ebec5"]
+[ext_resource type="Texture2D" uid="uid://dcw5aenhv68b8" path="res://player/textures/RoombaB.png" id="7_rgyib"]
+[ext_resource type="Texture2D" uid="uid://c10np0hacseyg" path="res://player/textures/RomIdle1.png" id="9_8t03j"]
+[ext_resource type="Texture2D" uid="uid://c4bew0rpge6tl" path="res://player/textures/Romwalk1.png" id="10_2ieo8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8t03j"]
 shader = ExtResource("2_hg6s5")
@@ -20,7 +23,7 @@ shader_parameter/roughness = 0.01
 size = Vector2(52, 76)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yw30f"]
-size = Vector2(78, 80)
+size = Vector2(56, 80)
 
 [sub_resource type="SystemFont" id="SystemFont_qjkh3"]
 font_names = PackedStringArray("Star Choco")
@@ -30,13 +33,11 @@ subpixel_positioning = 0
 font = SubResource("SystemFont_qjkh3")
 font_size = 24
 
-[sub_resource type="SystemFont" id="SystemFont_boad6"]
-font_names = PackedStringArray("Star Choco")
-subpixel_positioning = 0
-msdf_pixel_range = 24
-
-[sub_resource type="LabelSettings" id="LabelSettings_rgyib"]
-font = SubResource("SystemFont_boad6")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebec5"]
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 2
+anti_aliasing = false
+anti_aliasing_size = 0.845
 
 [sub_resource type="Animation" id="Animation_boad6"]
 length = 0.001
@@ -51,6 +52,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("2_qjkh3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_rgyib"]
@@ -84,6 +109,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("7_rgyib")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
 
 [sub_resource type="Animation" id="Animation_8t03j"]
 resource_name = "door_exit"
@@ -98,6 +135,47 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("6_g6k8r")]
+}
+
+[sub_resource type="Animation" id="Animation_ebec5"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_8t03j")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
 }
 
 [sub_resource type="Animation" id="Animation_hg6s5"]
@@ -116,18 +194,60 @@ tracks/0/keys = {
 "values": [ExtResource("2_qjkh3")]
 }
 
+[sub_resource type="Animation" id="Animation_yllr7"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_2ieo8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8t03j"]
 _data = {
 &"RESET": SubResource("Animation_boad6"),
 &"crouching": SubResource("Animation_rgyib"),
 &"door_enter": SubResource("Animation_2ieo8"),
 &"door_exit": SubResource("Animation_8t03j"),
-&"standing": SubResource("Animation_hg6s5")
+&"idle": SubResource("Animation_ebec5"),
+&"standing": SubResource("Animation_hg6s5"),
+&"walk": SubResource("Animation_yllr7")
 }
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1653520843]
+[node name="Player" type="CharacterBody2D" unique_id=1653520843]
 script = ExtResource("1_rkbax")
-metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=658354245]
 zoom = Vector2(2, 2)
@@ -143,9 +263,9 @@ texture = ExtResource("2_qjkh3")
 shape = SubResource("RectangleShape2D_rkbax")
 debug_color = Color(1, 0, 0.15294118, 0)
 
-[node name="BatteryModule" type="Node2D" parent="." unique_id=435266191 node_paths=PackedStringArray("batteryLabel")]
+[node name="BatteryModule" type="Node2D" parent="." unique_id=435266191 node_paths=PackedStringArray("batteryFill")]
 script = ExtResource("3_qjkh3")
-batteryLabel = NodePath("../HUDModule/battery")
+batteryFill = NodePath("../HUDModule/battery/fill")
 
 [node name="InteractModule" type="Area2D" parent="." unique_id=428256753 node_paths=PackedStringArray("TaskHud")]
 collision_mask = 2
@@ -186,18 +306,27 @@ grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_g6k8r")
 
-[node name="battery" type="Label" parent="HUDModule" unique_id=166557299]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -110.0
-offset_top = -23.0
-offset_right = 110.0
+[node name="battery" type="TextureRect" parent="HUDModule" unique_id=2069526926]
+anchors_preset = -1
+anchor_left = 0.16640624
+anchor_top = 0.91944444
+anchor_right = 0.48828125
+anchor_bottom = 0.975
 grow_horizontal = 2
 grow_vertical = 0
-label_settings = SubResource("LabelSettings_rgyib")
+texture = ExtResource("7_ebec5")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="fill" type="Panel" parent="HUDModule/battery" unique_id=1084107146]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02530541
+anchor_right = 0.9467714
+anchor_bottom = 0.9444444
+theme_override_styles/panel = SubResource("StyleBoxFlat_ebec5")
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationModule" type="AnimationPlayer" parent="." unique_id=1491430404]
 libraries/ = SubResource("AnimationLibrary_8t03j")

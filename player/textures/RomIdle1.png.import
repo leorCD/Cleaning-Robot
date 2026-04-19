@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8fhbp08e6q6d"
-path="res://.godot/imported/RoombaS.png-03f6b258fa350b492054c8278e4b080c.ctex"
+uid="uid://c10np0hacseyg"
+path="res://.godot/imported/RomIdle1.png-d289b2aa761c515557879787a2ee4800.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/RoombaS.png"
-dest_files=["res://.godot/imported/RoombaS.png-03f6b258fa350b492054c8278e4b080c.ctex"]
+source_file="res://player/textures/RomIdle1.png"
+dest_files=["res://.godot/imported/RomIdle1.png-d289b2aa761c515557879787a2ee4800.ctex"]
 
 [params]
 

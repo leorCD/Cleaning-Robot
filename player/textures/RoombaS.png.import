@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcw5aenhv68b8"
-path="res://.godot/imported/RoombaB.png-e39ab626143f0be5906d43a87eed0c40.ctex"
+uid="uid://b8fhbp08e6q6d"
+path="res://.godot/imported/RoombaS.png-1b936542036c8449154a0fe765b5ea12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/RoombaB.png"
-dest_files=["res://.godot/imported/RoombaB.png-e39ab626143f0be5906d43a87eed0c40.ctex"]
+source_file="res://player/textures/RoombaS.png"
+dest_files=["res://.godot/imported/RoombaS.png-1b936542036c8449154a0fe765b5ea12.ctex"]
 
 [params]
 

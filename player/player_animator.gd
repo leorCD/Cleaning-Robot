@@ -2,9 +2,10 @@ extends AnimationPlayer
 
 @onready var player : Player = self.get_parent()
 var movementAnims = {
-	States.MovementState.CROUCHING : "crouching",
-	States.MovementState.STANDING : "standing",
-	States.MovementState.REACHING : "reaching",
+	States.MovementState.CROUCH : "crouch",
+	States.MovementState.STAND : "idle",
+	States.MovementState.REACH : "reach",
+	States.MovementState.WALK : "walk",
 }
 var actionAnims = {
 	States.ActionState.DIED : "died",

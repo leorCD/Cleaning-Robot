@@ -2,17 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bgo6cjvqfd76b" path="res://tasks/drawing.gd" id="1_5dkho"]
 [ext_resource type="Script" uid="uid://b5hd7uppatkeq" path="res://tasks/mask.gd" id="2_jygob"]
+[ext_resource type="Texture2D" uid="uid://bhp4ydgagq2n7" path="res://textures/MinigameWindow.png" id="2_no800"]
 [ext_resource type="Texture2D" uid="uid://disawgklq2teu" path="res://textures/image (1).png" id="2_wue4u"]
 [ext_resource type="Shader" uid="uid://cxjlgkmb0b7h3" path="res://tasks/dirt_shader.gdshader" id="3_no800"]
 [ext_resource type="Texture2D" uid="uid://io0a4v5lel6s" path="res://textures/brown-dirt-minecraft-pattern_thumb.jpg" id="4_2ceky"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wue4u"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k4aye"]
 shader = ExtResource("3_no800")
@@ -47,30 +40,30 @@ grow_vertical = 2
 script = ExtResource("1_5dkho")
 metadata/_edit_use_anchors_ = true
 
-[node name="Canvas" type="Panel" parent="." unique_id=1179027287]
+[node name="Canvas" type="TextureRect" parent="." unique_id=1711852594]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.30234376
 anchor_top = 0.0649375
 anchor_right = 0.6976563
-anchor_bottom = 0.80930567
+anchor_bottom = 0.80972224
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_wue4u")
+texture = ExtResource("2_no800")
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Canvas" unique_id=1592397987]
+show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-metadata/_edit_use_anchors_ = true
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
 [node name="background" type="TextureRect" parent="Canvas/MarginContainer" unique_id=161536709]
 layout_mode = 2
@@ -96,7 +89,7 @@ disable_3d = true
 transparent_bg = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
-size = Vector2i(498, 527)
+size = Vector2i(490, 520)
 render_target_clear_mode = 1
 render_target_update_mode = 4
 

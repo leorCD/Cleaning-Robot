@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbdh2ygijrccc"
-path="res://.godot/imported/RoombaF.png-dfb35df32a900b1f2325fde8e8ddb15c.ctex"
+uid="uid://bhp4ydgagq2n7"
+path="res://.godot/imported/MinigameWindow.png-91d52566004277c14e6c586c27e3f85b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/RoombaF.png"
-dest_files=["res://.godot/imported/RoombaF.png-dfb35df32a900b1f2325fde8e8ddb15c.ctex"]
+source_file="res://textures/MinigameWindow.png"
+dest_files=["res://.godot/imported/MinigameWindow.png-91d52566004277c14e6c586c27e3f85b.ctex"]
 
 [params]
 

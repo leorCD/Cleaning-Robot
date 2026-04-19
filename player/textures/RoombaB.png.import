@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4k62ngjoav43"
-path="res://.godot/imported/OLD - RoombaSide.png-2a11b3c787eaca3fa8e9cc7b7a806d51.ctex"
+uid="uid://dcw5aenhv68b8"
+path="res://.godot/imported/RoombaB.png-37a76b770967546a6b77d27718964361.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/OLD - RoombaSide.png"
-dest_files=["res://.godot/imported/OLD - RoombaSide.png-2a11b3c787eaca3fa8e9cc7b7a806d51.ctex"]
+source_file="res://player/textures/RoombaB.png"
+dest_files=["res://.godot/imported/RoombaB.png-37a76b770967546a6b77d27718964361.ctex"]
 
 [params]
 

@@ -22,15 +22,15 @@ func start_task(State : States.MovementState) -> Node:
 	currentState = State
 	
 	match State: # match the value of State to one of the listed values
-		States.MovementState.STANDING: # standing value
+		States.MovementState.STAND: # standing value
 			if standingTaskFinished: return null
 			task_scene = StandingTaskScene
 			
-		States.MovementState.CROUCHING: # crouching value
+		States.MovementState.CROUCH: # crouching value
 			if crouchingTaskFinished: return null
 			task_scene = CrouchingTaskScene
 			
-		States.MovementState.REACHING: # reaching value
+		States.MovementState.REACH: # reaching value
 			if reachingTaskFinished: return null
 			task_scene = ReachingTaskScene
 			
@@ -60,15 +60,15 @@ func end_task() -> void:
 
 func on_task_finished() -> void:
 	match currentState:
-		States.MovementState.STANDING:
+		States.MovementState.STAND:
 			standingTaskFinished = true
 			print("standing finished")
 			
-		States.MovementState.CROUCHING:
+		States.MovementState.CROUCH:
 			crouchingTaskFinished = true
 			print("crouching finished")
 			
-		States.MovementState.REACHING:
+		States.MovementState.REACH:
 			reachingTaskFinished = true
 			print("reaching finished")
 			

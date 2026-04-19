@@ -4,7 +4,7 @@ class_name Player
 @onready var sprite = $Sprite2D
 @onready var camera = $Camera2D
 
-var movementState : States.MovementState = States.MovementState.STANDING # default State
+var movementState : States.MovementState = States.MovementState.STAND # default State
 var actionState : States.ActionState = States.ActionState.NONE # default State
 
 var gravity : float = 9.81 * 100
@@ -48,14 +48,16 @@ func _physics_process(delta: float) -> void:
 	reaching = Input.is_action_pressed("up")
 	
 	# set current movement state (for cleaning tasks)
-	if crouching:
-		movementState = States.MovementState.CROUCHING
+	if direction:
+		movementState = States.MovementState.WALK
+	elif crouching:
+		movementState = States.MovementState.CROUCH
 		camera.position.y = 15
 	elif reaching:
-		movementState = States.MovementState.REACHING
+		movementState = States.MovementState.REACH
 		camera.position.y = -15
 	else:
-		movementState = States.MovementState.STANDING
+		movementState = States.MovementState.STAND
 		camera.position.y = 0
 	
 	move_and_slide()
