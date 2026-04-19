@@ -5,15 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://pm8ms1gbw3tn" path="res://textures/MinigameIpad.png" id="2_no800"]
 [ext_resource type="Texture2D" uid="uid://dj3pvcike3run" path="res://player/textures/MinigameJustWindow.png" id="3_k4aye"]
 [ext_resource type="Shader" uid="uid://cxjlgkmb0b7h3" path="res://shaders/dirt_shader.gdshader" id="3_no800"]
-[ext_resource type="Texture2D" uid="uid://io0a4v5lel6s" path="res://textures/brown-dirt-minecraft-pattern_thumb.jpg" id="4_2ceky"]
-[ext_resource type="Texture2D" uid="uid://xmyqqcd2670u" path="res://textures/MinigameJustWindow-export.png" id="5_k4aye"]
+[ext_resource type="Texture2D" uid="uid://c3x37kbcypgat" path="res://tasks/sink/textures/MinigameMess.png" id="6_k4aye"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4aye"]
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k4aye"]
 shader = ExtResource("3_no800")
-shader_parameter/mask_texture = ExtResource("5_k4aye")
 
 [sub_resource type="SystemFont" id="SystemFont_y1b2w"]
 font_names = PackedStringArray("Monospace")
@@ -22,25 +20,6 @@ subpixel_positioning = 0
 [sub_resource type="LabelSettings" id="LabelSettings_0aruh"]
 font = SubResource("SystemFont_y1b2w")
 font_size = 24
-
-[sub_resource type="SystemFont" id="SystemFont_no800"]
-font_names = PackedStringArray("Star Choco")
-subpixel_positioning = 0
-
-[sub_resource type="LabelSettings" id="LabelSettings_no800"]
-font = SubResource("SystemFont_no800")
-font_size = 70
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="SystemFont" id="SystemFont_k4aye"]
-font_names = PackedStringArray("Star Choco")
-subpixel_positioning = 0
-
-[sub_resource type="LabelSettings" id="LabelSettings_y1b2w"]
-font = SubResource("SystemFont_k4aye")
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
 
 [node name="sink_standing" type="Control" unique_id=812949551]
 layout_mode = 3
@@ -61,7 +40,7 @@ offset_bottom = 583.0
 texture = ExtResource("2_no800")
 
 [node name="Panel" type="Panel" parent="Canvas" unique_id=711421827]
-self_modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 0)
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = -1
@@ -96,7 +75,7 @@ metadata/_edit_use_anchors_ = true
 z_index = 1
 material = SubResource("ShaderMaterial_k4aye")
 layout_mode = 2
-texture = ExtResource("4_2ceky")
+texture = ExtResource("6_k4aye")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -138,29 +117,4 @@ text = "CONNECTING TO VISUAL FEED..."
 label_settings = SubResource("LabelSettings_0aruh")
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="TaskFinishText" type="VBoxContainer" parent="." unique_id=847390719]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.30546874
-anchor_top = 0.13055556
-anchor_right = 0.69453126
-anchor_bottom = 0.28055555
-metadata/_edit_group_ = true
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="TaskFinishText" unique_id=1972031933]
-layout_mode = 2
-text = "Task finished!!!"
-label_settings = SubResource("LabelSettings_no800")
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Label2" type="Label" parent="TaskFinishText" unique_id=660652096]
-layout_mode = 2
-text = "( press 'esc' to exit )"
-label_settings = SubResource("LabelSettings_y1b2w")
-horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true

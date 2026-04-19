@@ -1,16 +1,24 @@
 [gd_scene format=3 uid="uid://dwj8dxk2orq1x"]
 
-[ext_resource type="Texture2D" uid="uid://bgm2k0dlyukn6" path="res://textures/sink.png" id="2_y3rjl"]
+[ext_resource type="Shader" uid="uid://dhoh60wuopajp" path="res://shaders/blinkEffect.gdshader" id="1_k538n"]
+[ext_resource type="Texture2D" uid="uid://ba0k7qunagy51" path="res://tasks/sink/textures/MinigameJustWindow.png" id="2_k538n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k538n"]
+resource_local_to_scene = true
+shader = ExtResource("1_k538n")
+shader_parameter/flash = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwgg1"]
-size = Vector2(42, 62)
+size = Vector2(48, 62)
 
 [node name="sink" type="Area2D" unique_id=178642162]
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1244583372]
-scale = Vector2(0.22580646, 0.22580644)
-texture = ExtResource("2_y3rjl")
+material = SubResource("ShaderMaterial_k538n")
+scale = Vector2(0.17209303, 0.172093)
+texture = ExtResource("2_k538n")
+offset = Vector2(5.775, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=648909737]
 shape = SubResource("RectangleShape2D_dwgg1")

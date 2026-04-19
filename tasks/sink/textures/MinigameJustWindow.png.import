@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ba0k7qunagy51"
-path="res://.godot/imported/MinigameJustWindow.png-3402a9586ff4cbcd160ad18e969b4762.ctex"
+path="res://.godot/imported/MinigameJustWindow.png-04c9b2902e4b2ba093bbbeb9a99f95fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/MinigameJustWindow.png"
-dest_files=["res://.godot/imported/MinigameJustWindow.png-3402a9586ff4cbcd160ad18e969b4762.ctex"]
+source_file="res://tasks/sink/textures/MinigameJustWindow.png"
+dest_files=["res://.godot/imported/MinigameJustWindow.png-04c9b2902e4b2ba093bbbeb9a99f95fe.ctex"]
 
 [params]
 

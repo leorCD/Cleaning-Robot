@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://d11ibitadgo44"]
 
+[ext_resource type="Script" uid="uid://cc5pb41al67c0" path="res://scripts/level.gd" id="1_bbk5w"]
 [ext_resource type="Texture2D" uid="uid://dbpijmmatdkuy" path="res://textures/old/123.png" id="1_errlg"]
 [ext_resource type="PackedScene" uid="uid://dfayqmttyqmjf" path="res://player/player.tscn" id="1_g2h75"]
 [ext_resource type="PackedScene" uid="uid://dwj8dxk2orq1x" path="res://tasks/sink/sink.tscn" id="2_dwgg1"]
@@ -12,16 +13,24 @@
 size = Vector2(1222, 20)
 
 [node name="Level1" type="Node2D" unique_id=2091779854]
+script = ExtResource("1_bbk5w")
 
 [node name="4_3 fake aspect ratio" parent="." unique_id=31042625 instance=ExtResource("5_ru4tf")]
+visible = false
 
 [node name="player" parent="." unique_id=577084683 instance=ExtResource("1_g2h75")]
 position = Vector2(-2, 59)
 
 [node name="Tasks" type="Node" parent="." unique_id=32572920]
 
-[node name="sink" parent="Tasks" unique_id=178642162 instance=ExtResource("2_dwgg1")]
-position = Vector2(166, 67)
+[node name="window" parent="Tasks" unique_id=178642162 instance=ExtResource("2_dwgg1")]
+position = Vector2(119, 23)
+collision_layer = 2
+script = ExtResource("3_ejswk")
+StandingTaskScene = ExtResource("3_ru4tf")
+
+[node name="window2" parent="Tasks" unique_id=1918252614 instance=ExtResource("2_dwgg1")]
+position = Vector2(251, 23)
 collision_layer = 2
 script = ExtResource("3_ejswk")
 StandingTaskScene = ExtResource("3_ru4tf")

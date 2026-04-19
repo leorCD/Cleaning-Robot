@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d2n2xrbsjd0ec"]
+
+[ext_resource type="Texture2D" uid="uid://bibifo20g61b7" path="res://textures/ObjMarker.png" id="1_pq885"]
+[ext_resource type="Script" uid="uid://bhsbo4c7yp7sn" path="res://scripts/object_marker.gd" id="2_5kqn4"]
+
+[node name="objectMarker" type="Sprite2D" unique_id=1059415282]
+visible = false
+texture = ExtResource("1_pq885")
+script = ExtResource("2_5kqn4")
