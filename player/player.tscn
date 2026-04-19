@@ -267,10 +267,11 @@ debug_color = Color(1, 0, 0.15294118, 0)
 script = ExtResource("3_qjkh3")
 batteryFill = NodePath("../HUDModule/battery/fill")
 
-[node name="InteractModule" type="Area2D" parent="." unique_id=428256753 node_paths=PackedStringArray("TaskHud")]
+[node name="InteractModule" type="Area2D" parent="." unique_id=428256753 node_paths=PackedStringArray("TaskHud", "HUDModule")]
 collision_mask = 2
 script = ExtResource("3_g1dw6")
 TaskHud = NodePath("TaskLayer")
+HUDModule = NodePath("../HUDModule")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractModule" unique_id=2057291534]
 shape = SubResource("RectangleShape2D_yw30f")

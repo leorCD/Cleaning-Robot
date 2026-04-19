@@ -9,7 +9,7 @@ var crouchingTaskFinished : bool = true
 @export var ReachingTaskScene : PackedScene = null
 var reachingTaskFinished : bool = true
 
-var activeTask : Node = null
+var activeTask : Control = null
 var currentState : States.MovementState = States.MovementState.NONE
 
 func _ready() -> void:
@@ -53,6 +53,7 @@ func end_task() -> void:
 			activeTask.task_finished.disconnect(on_task_finished)
 			
 			activeTask.get_node("TaskFinishText").visible = true
+			activeTask.get_node("Canvas").z_index = -1
 			
 		activeTask = null
 

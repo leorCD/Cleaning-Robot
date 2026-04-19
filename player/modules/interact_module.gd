@@ -3,6 +3,7 @@ class_name InteractionModule
 
 @onready var player : Player = self.get_parent()
 @export var TaskHud : CanvasLayer = null
+@export var HUDModule : CanvasLayer = null
 
 var nearbyInteractables : Array[Node] = []
 var targetInteractable : Node = null
@@ -49,6 +50,8 @@ func start_task() -> bool:
 	taskUI = currentTask.start_task(movementState)
 	if not taskUI:
 		return false
+		
+	HUDModule.set_interaction_text("")
 	
 	player.can_move(false)
 	
@@ -116,3 +119,4 @@ func update_closest_interactable() -> void:
 			closest = object # set it as the new closest object
 		
 	targetInteractable = closest
+	HUDModule.set_interaction_text("Press 'space' to clean " + str(targetInteractable.name))

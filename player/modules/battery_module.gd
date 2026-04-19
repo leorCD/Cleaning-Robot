@@ -6,7 +6,7 @@ class_name BatteryModule
 
 var currBattery : float = 100
 var maxBattery : int = 100 # just 100 %
-var batteryDepletionRate : float = 50.0 # per second
+var batteryDepletionRate : float = 2.0 # per second
 
 var maxFillSizeX : float = 0
 func _ready() -> void:

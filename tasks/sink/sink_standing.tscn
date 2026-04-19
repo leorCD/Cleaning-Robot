@@ -11,12 +11,12 @@
 shader = ExtResource("3_no800")
 shader_parameter/mask_texture = ExtResource("4_2ceky")
 
-[sub_resource type="SystemFont" id="SystemFont_2ceky"]
+[sub_resource type="SystemFont" id="SystemFont_no800"]
 font_names = PackedStringArray("Star Choco")
 subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_no800"]
-font = SubResource("SystemFont_2ceky")
+font = SubResource("SystemFont_no800")
 font_size = 70
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
@@ -96,7 +96,7 @@ render_target_update_mode = 4
 [node name="drawing" type="Node2D" parent="Canvas/MarginContainer/SubViewportContainer/SubViewport" unique_id=122328963]
 script = ExtResource("2_jygob")
 
-[node name="TaskFinishText" type="VBoxContainer" parent="." unique_id=359289161]
+[node name="TaskFinishText" type="VBoxContainer" parent="." unique_id=847390719]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -107,14 +107,14 @@ anchor_bottom = 0.28055555
 metadata/_edit_group_ = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="TaskFinishText" unique_id=1426304695]
+[node name="Label" type="Label" parent="TaskFinishText" unique_id=1972031933]
 layout_mode = 2
 text = "Task finished!!!"
 label_settings = SubResource("LabelSettings_no800")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="TaskFinishText" unique_id=2089014795]
+[node name="Label2" type="Label" parent="TaskFinishText" unique_id=660652096]
 layout_mode = 2
 text = "( press 'esc' to exit )"
 label_settings = SubResource("LabelSettings_y1b2w")
