@@ -1,6 +1,8 @@
 extends Area2D
 class_name InteractionModule
 
+var levelAnalysisScene : PackedScene = load("res://scenes/level_complete_screen.tscn")
+
 @onready var player : Player = self.get_parent()
 @export var TaskHud : CanvasLayer = null
 @export var HUDModule : CanvasLayer = null
@@ -131,10 +133,17 @@ func end_task() -> void:
 	TweenLayerIn.tween_property($TaskLayer/TranslucentLayer, "modulate:a", 0.0, 0.5)
 	await TweenLayerIn.finished
 	$TaskLayer/TranslucentLayer.visible = false
-	
 
 func on_level_complete() -> void:
 	player.forceFreeze = true
+	
+	var levelAnalysis = levelAnalysisScene.instantiate()
+	$LevelComplete.add_child(levelAnalysis)
+	levelAnalysis.global_position.y = 700
+	
+	var tweenIntoScreen = create_tween() \
+	.set_trans(Tween.TRANS_QUART) \
+	.tween_property(levelAnalysis, "global_position:y", 0, 1.0)
 
 
 

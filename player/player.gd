@@ -82,16 +82,16 @@ func die() -> void:
 func can_move(canMove : bool) -> void:
 	if forceFreeze:
 		freezeMovement = true
-		zoom_camera(1.8)
+		zoom_camera(1.5)
 		return
 	
 	freezeMovement = not canMove
 	if not canMove:
-		zoom_camera(6)
+		zoom_camera(6.0)
 	else:
-		zoom_camera(2)
+		zoom_camera(2.0)
 
-func zoom_camera(zoom : int) -> void:
+func zoom_camera(zoom : float) -> void:
 	camera.position = Vector2.ZERO
 	
 	var zoomIn = create_tween()

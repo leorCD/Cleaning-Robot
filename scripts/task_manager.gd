@@ -18,8 +18,7 @@ func _ready() -> void:
 			totalCleanables += 1
 		if task.ReachingTaskScene:
 			totalCleanables += 1
-		
-	print("total objectives : ", totalCleanables)
+	#print("total objectives : ", totalCleanables)
 
 func on_cleanable_task_finished() -> void:
 	if totalCleanables > 1:
@@ -28,5 +27,5 @@ func on_cleanable_task_finished() -> void:
 		level_finish()
 
 func level_finish() -> void:
-	print("all tasks fisihed")
+	#print("all tasks fisihed")
 	level_complete.emit()

@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://c8ndfttrgjyou"]
+
+[ext_resource type="Texture2D" uid="uid://c6cbd8do3nwtv" path="res://textures/revans2_Clipboard_Background.png" id="1_rbv35"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbv35"]
+bg_color = Color(0, 0, 0, 0.43137255)
+
+[sub_resource type="SystemFont" id="SystemFont_rbv35"]
+font_names = PackedStringArray("Star Choco")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_35ovi"]
+font = SubResource("SystemFont_rbv35")
+font_size = 45
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_35ovi"]
+font_names = PackedStringArray("Star Choco")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_mcvgn"]
+font = SubResource("SystemFont_35ovi")
+font_size = 18
+font_color = Color(0, 0, 0, 1)
+
+[node name="levelCompleteScreen" type="Control" unique_id=1073968899]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=493906205]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -1.6222222
+anchor_right = 1.0
+anchor_bottom = 1.3736111
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rbv35")
+
+[node name="texture" type="TextureRect" parent="." unique_id=299702493]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23984376
+anchor_top = 0.047222227
+anchor_right = 0.76484376
+anchor_bottom = 0.98055565
+texture = ExtResource("1_rbv35")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="texture" unique_id=457094847]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.175
+anchor_top = 0.11333334
+anchor_right = 0.79833335
+anchor_bottom = 0.9483333
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="clipboard" type="VBoxContainer" parent="." unique_id=2049057264]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 147.0
+offset_right = 828.0
+offset_bottom = 657.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="clipboard" unique_id=623387978]
+layout_mode = 2
+text = "level complete!"
+label_settings = SubResource("LabelSettings_35ovi")
+horizontal_alignment = 1
+
+[node name="analysis" type="HBoxContainer" parent="clipboard" unique_id=471897051]
+layout_mode = 2
+
+[node name="checkboxes" type="VBoxContainer" parent="clipboard/analysis" unique_id=160944317]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="clipboard/analysis/checkboxes" unique_id=1299349389]
+layout_mode = 2
+size_flags_vertical = 6
+text = "checkmark"
+label_settings = SubResource("LabelSettings_mcvgn")
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="clipboard/analysis/checkboxes" unique_id=138245020]
+layout_mode = 2
+size_flags_vertical = 6
+text = "checkmark"
+label_settings = SubResource("LabelSettings_mcvgn")
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="clipboard/analysis/checkboxes" unique_id=1071040418]
+layout_mode = 2
+size_flags_vertical = 6
+text = "checkmark"
+label_settings = SubResource("LabelSettings_mcvgn")
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="clipboard/analysis/checkboxes" unique_id=2016382069]
+layout_mode = 2
+size_flags_vertical = 6
+text = "checkmark"
+label_settings = SubResource("LabelSettings_mcvgn")
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="clipboard/analysis/checkboxes" unique_id=2014393374]
+layout_mode = 2
+size_flags_vertical = 6
+text = "checkmark"
+label_settings = SubResource("LabelSettings_mcvgn")
+vertical_alignment = 1
+
+[node name="info" type="VBoxContainer" parent="clipboard/analysis" unique_id=1761562751]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="clipboard/analysis/info" unique_id=1919295602]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+size_flags_vertical = 6
+text = "status status status status status status status status status status"
+label_settings = SubResource("LabelSettings_mcvgn")
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="clipboard/analysis/info" unique_id=221402394]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+size_flags_vertical = 6
+text = "status status status status status status status status status status"
+label_settings = SubResource("LabelSettings_mcvgn")
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="clipboard/analysis/info" unique_id=224478919]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+size_flags_vertical = 6
+text = "status status status status status status status status status status"
+label_settings = SubResource("LabelSettings_mcvgn")
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="clipboard/analysis/info" unique_id=26374240]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+size_flags_vertical = 6
+text = "status status status status status status status status status status"
+label_settings = SubResource("LabelSettings_mcvgn")
+autowrap_mode = 2
+
+[node name="Label6" type="Label" parent="clipboard/analysis/info" unique_id=1268187120]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+size_flags_vertical = 6
+text = "status status status status status status status status status status"
+label_settings = SubResource("LabelSettings_mcvgn")
+autowrap_mode = 2

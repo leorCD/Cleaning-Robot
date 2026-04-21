@@ -31,8 +31,8 @@ collision_layer = 2
 script = ExtResource("3_ejswk")
 StandingTaskScene = ExtResource("3_ru4tf")
 
-[node name="window2" parent="Tasks" unique_id=1918252614 instance=ExtResource("2_dwgg1")]
-position = Vector2(210, 23)
+[node name="window2" parent="Tasks" unique_id=1409830479 instance=ExtResource("2_dwgg1")]
+position = Vector2(205, 23)
 collision_layer = 2
 script = ExtResource("3_ejswk")
 StandingTaskScene = ExtResource("3_ru4tf")
