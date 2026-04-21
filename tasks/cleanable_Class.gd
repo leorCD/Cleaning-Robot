@@ -1,6 +1,8 @@
 extends Area2D
 class_name Cleanable
 
+signal task_completed
+
 @export_category("Tasks")
 @export var StandingTaskScene : PackedScene = null
 var standingTaskFinished : bool = true
@@ -79,6 +81,8 @@ func on_task_finished() -> void:
 			
 		_:
 			print("task finish error - something bad happened fix it")
+	
+	task_completed.emit()
 	
 	end_task()
 	

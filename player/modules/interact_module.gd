@@ -53,6 +53,16 @@ func start_task() -> bool:
 		return false
 		
 	currentTask = targetInteractable
+	if currentTask.activeTask:
+		currentTask.activeTask.task_finished.connect(func():
+			isBusy = false  
+		)
+	if targetInteractable.get_parent() is TaskManager:
+		var taskmanager = targetInteractable.get_parent()
+		
+		if not taskmanager.level_complete.is_connected(on_level_complete):
+			taskmanager.level_complete.connect(on_level_complete)
+	
 	player.can_move(false)
 	tween_task()
 	
@@ -104,9 +114,9 @@ func end_task() -> void:
 	if not currentTask:
 		return
 	
+	player.can_move(true)
 	currentTask.end_task()
 	currentTask = null
-	player.can_move(true)
 	
 	if not taskUI:
 		return
@@ -121,6 +131,10 @@ func end_task() -> void:
 	TweenLayerIn.tween_property($TaskLayer/TranslucentLayer, "modulate:a", 0.0, 0.5)
 	await TweenLayerIn.finished
 	$TaskLayer/TranslucentLayer.visible = false
+	
+
+func on_level_complete() -> void:
+	player.forceFreeze = true
 
 
 
@@ -152,7 +166,7 @@ func update_closest_interactable() -> void:
 			closestDistance = distance # set its distance as the new threshold
 			closest = object # set it as the new closest object
 	
-	if closest:
+	if closest and (closest is Interactable or closest is Cleanable):
 		objectMarker.visible = true
 		if objectMarker.get_parent() == closest:
 			return

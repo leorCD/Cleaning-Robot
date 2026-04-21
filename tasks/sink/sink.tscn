@@ -15,6 +15,7 @@ size = Vector2(48, 62)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1244583372]
+z_index = -1
 material = SubResource("ShaderMaterial_k538n")
 scale = Vector2(0.17209303, 0.172093)
 texture = ExtResource("2_k538n")

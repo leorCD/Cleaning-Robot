@@ -241,6 +241,7 @@ _data = {
 script = ExtResource("1_rkbax")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=658354245]
+process_mode = 3
 zoom = Vector2(2, 2)
 process_callback = 0
 position_smoothing_enabled = true

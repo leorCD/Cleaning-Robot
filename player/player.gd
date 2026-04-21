@@ -10,14 +10,17 @@ var actionState : States.ActionState = States.ActionState.NONE # default State
 var gravity : float = 9.81 * 100
 var direction : float
 var speed : int = 2 * 5000
+
 var crouching : bool = false
 var reaching : bool = false
+
 var alive : bool = true
 var freezeMovement : bool = false
+var forceFreeze : bool = false
 
 
 
-func _ready() -> void:
+func _ready() -> void:	
 	randomize() # essentially resets the generator seed, otherwise randf would give the same random number every time
 	
 	var h = randf()                     # any hue
@@ -77,16 +80,21 @@ func die() -> void:
 	self.alive = false
 
 func can_move(canMove : bool) -> void:
-	freezeMovement = not canMove
+	if forceFreeze:
+		freezeMovement = true
+		zoom_camera(1.8)
+		return
 	
-	# zoom camera in
-	var newZoom = 6.0
+	freezeMovement = not canMove
+	if not canMove:
+		zoom_camera(6)
+	else:
+		zoom_camera(2)
+
+func zoom_camera(zoom : int) -> void:
+	camera.position = Vector2.ZERO
+	
 	var zoomIn = create_tween()
 	zoomIn.set_ease(Tween.EASE_OUT)
 	zoomIn.set_trans(Tween.TRANS_QUART)
-	if not canMove:
-		newZoom = 6.0
-	else:
-		newZoom = 2.0
-	camera.position = Vector2.ZERO
-	zoomIn.tween_property(camera, "zoom", Vector2(newZoom, newZoom), 1.0)
+	zoomIn.tween_property(camera, "zoom", Vector2(zoom, zoom), 1.0)
