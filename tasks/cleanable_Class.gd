@@ -27,7 +27,7 @@ func _ready() -> void:
 	totalDirt = int(not standingTaskFinished) + int(not crouchingTaskFinished) + int(not reachingTaskFinished)
 	if totalDirt >= 1:
 		dirtSprite.visible = true
-		dirtSprite.modulate.a = 0.4 + totalDirt / 3
+		dirtSprite.modulate.a = 0.4 + float(totalDirt) / 3.0
 
 func start_task(calledBy : InteractionModule, State : States.MovementState) -> Node:
 	interactor = calledBy

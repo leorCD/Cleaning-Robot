@@ -20,7 +20,7 @@ var forceFreeze : bool = false
 
 
 
-func _ready() -> void:	
+func _ready() -> void:
 	randomize() # essentially resets the generator seed, otherwise randf would give the same random number every time
 	
 	var h = randf()                     # any hue

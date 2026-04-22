@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c6cbd8do3nwtv" path="res://textures/revans2_Clipboard_Background.png" id="1_rbv35"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbv35"]
-bg_color = Color(0, 0, 0, 0.43137255)
+bg_color = Color(0, 0, 0, 0.5254902)
 
 [sub_resource type="SystemFont" id="SystemFont_rbv35"]
 font_names = PackedStringArray("Star Choco")

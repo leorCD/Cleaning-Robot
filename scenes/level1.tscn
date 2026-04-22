@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://d11ibitadgo44"]
 
-[ext_resource type="Script" uid="uid://cc5pb41al67c0" path="res://scripts/level.gd" id="1_bbk5w"]
 [ext_resource type="PackedScene" uid="uid://dfayqmttyqmjf" path="res://player/player.tscn" id="1_g2h75"]
 [ext_resource type="PackedScene" uid="uid://dwj8dxk2orq1x" path="res://tasks/sink/window.tscn" id="2_dwgg1"]
 [ext_resource type="Script" uid="uid://bw4wn5pphs17g" path="res://tasks/cleanable_Class.gd" id="3_ejswk"]
+[ext_resource type="Script" uid="uid://7jnxis6x6ko3" path="res://global/4_3_fake_aspect_ratio.gd" id="3_u068y"]
 [ext_resource type="Script" uid="uid://bouls4bgbr71v" path="res://scripts/task_manager.gd" id="4_conm7"]
 [ext_resource type="Texture2D" uid="uid://noa3d3u6nigi" path="res://textures/buttons.png" id="4_mvsps"]
 [ext_resource type="PackedScene" uid="uid://ca1ti3xnqjjh2" path="res://global/4_3_fake_aspect_ratio.tscn" id="5_ru4tf"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c6k1hurpo7ev3" path="res://textures/room/RoomCenter2.png" id="10_i8kv5"]
 [ext_resource type="PackedScene" uid="uid://cslymy7ylhaix" path="res://tasks/cabinet/cabinet_standing.tscn" id="10_u068y"]
 [ext_resource type="Texture2D" uid="uid://clr5dg4k7opkh" path="res://textures/room/RoomLeftEdge.png" id="11_dxn3v"]
-[ext_resource type="Texture2D" uid="uid://bgpl8n76s6hlg" path="res://textures/room/Charger.png" id="12_3w4mx"]
+[ext_resource type="PackedScene" uid="uid://crj1lsh8jg1jn" path="res://scenes/charger.tscn" id="12_3w4mx"]
 [ext_resource type="Texture2D" uid="uid://bg3caw5b4fvpv" path="res://textures/room/RoomRightEdge.png" id="12_14jow"]
 [ext_resource type="Texture2D" uid="uid://c8grwsc0ucda5" path="res://textures/room/Table.png" id="15_14jow"]
 [ext_resource type="Texture2D" uid="uid://n1u3itka1niq" path="res://textures/room/ChairSide.png" id="16_mvsps"]
@@ -42,10 +42,10 @@ size = Vector2(614, 20)
 size = Vector2(20, 160)
 
 [node name="Level1" type="Node2D" unique_id=2091779854]
-script = ExtResource("1_bbk5w")
 
 [node name="4_3 fake aspect ratio" parent="." unique_id=31042625 instance=ExtResource("5_ru4tf")]
 visible = false
+script = ExtResource("3_u068y")
 
 [node name="player" parent="." unique_id=577084683 instance=ExtResource("1_g2h75")]
 z_index = 5
@@ -102,6 +102,7 @@ script = ExtResource("4_conm7")
 [node name="window" parent="Tasks" unique_id=178642162 instance=ExtResource("2_dwgg1")]
 position = Vector2(-184, 37)
 script = ExtResource("3_ejswk")
+StandingTaskScene = ExtResource("8_3w4mx")
 
 [node name="window2" parent="Tasks" unique_id=1409830479 instance=ExtResource("2_dwgg1")]
 position = Vector2(32, 32)
@@ -126,6 +127,10 @@ leadsTo = NodePath("../Door2")
 position = Vector2(182, 57)
 collision_layer = 0
 leadsTo = NodePath("../Door")
+
+[node name="LevelGoal" parent="Interactables" unique_id=698597847 node_paths=PackedStringArray("taskManager") instance=ExtResource("12_3w4mx")]
+position = Vector2(256, 68)
+taskManager = NodePath("../../Tasks")
 
 [node name="Walls" type="Node" parent="." unique_id=1031712267]
 
@@ -174,10 +179,6 @@ position = Vector2(228, 36)
 texture = ExtResource("12_14jow")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
-
-[node name="Charger" type="Sprite2D" parent="." unique_id=1631866430]
-position = Vector2(262, 68)
-texture = ExtResource("12_3w4mx")
 
 [node name="Table" type="Sprite2D" parent="." unique_id=202274032]
 position = Vector2(-75, 80)

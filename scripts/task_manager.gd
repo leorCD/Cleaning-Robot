@@ -3,6 +3,7 @@ class_name TaskManager
 
 signal level_complete
 var totalCleanables : int = 0
+var completedCleanables : int = 0
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -21,11 +22,10 @@ func _ready() -> void:
 	#print("total objectives : ", totalCleanables)
 
 func on_cleanable_task_finished() -> void:
-	if totalCleanables > 1:
-		totalCleanables -= 1
-	else:
+	completedCleanables += 1
+	
+	if completedCleanables >= totalCleanables:
 		level_finish()
 
 func level_finish() -> void:
-	#print("all tasks fisihed")
 	level_complete.emit()

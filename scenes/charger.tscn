@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://crj1lsh8jg1jn"]
+
+[ext_resource type="Texture2D" uid="uid://bgpl8n76s6hlg" path="res://textures/room/Charger.png" id="1_aanbt"]
+[ext_resource type="Script" uid="uid://o4n7cg7a6csc" path="res://scripts/level_end.gd" id="1_pxnrp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aanbt"]
+size = Vector2(23, 60)
+
+[node name="Charger" type="Area2D" unique_id=698597847]
+collision_layer = 2
+script = ExtResource("1_pxnrp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=411506895]
+texture = ExtResource("1_aanbt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=489145906]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_aanbt")
+debug_color = Color(0, 0.64056903, 0.3526417, 0.41960785)
+
+[node name="LevelComplete" type="CanvasLayer" parent="." unique_id=698137466]
+layer = 999

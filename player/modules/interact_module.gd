@@ -1,7 +1,7 @@
 extends Area2D
 class_name InteractionModule
 
-var levelAnalysisScene : PackedScene = load("res://scenes/level_complete_screen.tscn")
+#var levelAnalysisScene : PackedScene = load("res://scenes/level_complete_screen.tscn")
 
 @onready var player : Player = self.get_parent()
 @export var TaskHud : CanvasLayer = null
@@ -15,7 +15,7 @@ var taskUI : Node = null
 
 @onready var objectMarker : Node2D = load("res://scenes/object_marker.tscn").instantiate()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	update_closest_interactable()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -138,15 +138,17 @@ func end_task() -> void:
 	$TaskLayer/TranslucentLayer.visible = false
 
 func on_level_complete() -> void:
-	player.forceFreeze = true
-	
-	var levelAnalysis = levelAnalysisScene.instantiate()
-	$LevelComplete.add_child(levelAnalysis)
-	levelAnalysis.global_position.y = 700
-	
-	var tweenIntoScreen = create_tween() \
-	.set_trans(Tween.TRANS_QUART) \
-	.tween_property(levelAnalysis, "global_position:y", 0, 1.0)
+	# dont make last task end game, require player to reach a charger
+	pass
+	##player.forceFreeze = true
+	##
+	##var levelAnalysis = levelAnalysisScene.instantiate()
+	##$LevelComplete.add_child(levelAnalysis)
+	##levelAnalysis.global_position.y = 700
+	##
+	##var tweenIntoScreen = create_tween() \
+	##.set_trans(Tween.TRANS_QUART) \
+	##.tween_property(levelAnalysis, "global_position:y", 0, 1.0)
 
 
 
