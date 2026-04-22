@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dwj8dxk2orq1x"]
 
 [ext_resource type="Shader" uid="uid://dhoh60wuopajp" path="res://shaders/blinkEffect.gdshader" id="1_k538n"]
-[ext_resource type="Texture2D" uid="uid://ba0k7qunagy51" path="res://tasks/sink/textures/MinigameJustWindow.png" id="2_k538n"]
+[ext_resource type="Texture2D" uid="uid://dpjto4ytmxfl6" path="res://textures/room/window.png" id="2_k538n"]
+[ext_resource type="Texture2D" uid="uid://kxe2mjgnfu6j" path="res://textures/room/window-dirt.png" id="3_1vx4y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k538n"]
 resource_local_to_scene = true
@@ -9,18 +10,18 @@ shader = ExtResource("1_k538n")
 shader_parameter/flash = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwgg1"]
-size = Vector2(48, 62)
+size = Vector2(24, 48)
 
 [node name="sink" type="Area2D" unique_id=178642162]
-metadata/_edit_group_ = true
+collision_layer = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1244583372]
-z_index = -1
+[node name="texture" type="Sprite2D" parent="." unique_id=1244583372]
+z_index = -9
 material = SubResource("ShaderMaterial_k538n")
-scale = Vector2(0.17209303, 0.172093)
 texture = ExtResource("2_k538n")
-offset = Vector2(5.775, 0)
+
+[node name="dirt" type="Sprite2D" parent="." unique_id=1542406994]
+texture = ExtResource("3_1vx4y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=648909737]
 shape = SubResource("RectangleShape2D_dwgg1")
-debug_color = Color(0.6625151, 0.80674607, 0.5167815, 0.41960785)

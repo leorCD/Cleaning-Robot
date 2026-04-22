@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bgo6cjvqfd76b" path="res://tasks/drawing.gd" id="1_5dkho"]
 [ext_resource type="Script" uid="uid://b5hd7uppatkeq" path="res://tasks/mask.gd" id="2_jygob"]
+[ext_resource type="Texture2D" uid="uid://ba0k7qunagy51" path="res://tasks/sink/textures/MinigameJustWindow.png" id="2_k4aye"]
 [ext_resource type="Texture2D" uid="uid://pm8ms1gbw3tn" path="res://textures/MinigameIpad.png" id="2_no800"]
-[ext_resource type="Texture2D" uid="uid://dj3pvcike3run" path="res://player/textures/MinigameJustWindow.png" id="3_k4aye"]
 [ext_resource type="Shader" uid="uid://cxjlgkmb0b7h3" path="res://shaders/dirt_shader.gdshader" id="3_no800"]
 [ext_resource type="Texture2D" uid="uid://c3x37kbcypgat" path="res://tasks/sink/textures/MinigameMess.png" id="6_k4aye"]
 
@@ -67,7 +67,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="background" type="TextureRect" parent="Canvas/Panel/MarginContainer" unique_id=161536709]
 layout_mode = 2
-texture = ExtResource("3_k4aye")
+texture = ExtResource("2_k4aye")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 

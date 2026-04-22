@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xmyqqcd2670u"
-path="res://.godot/imported/MinigameJustWindow-export.png-6f623cbb066d6de5e9f0cae578c4c09d.ctex"
+uid="uid://noa3d3u6nigi"
+path="res://.godot/imported/buttons.png-d3a742fe0ddaa51717ec3a2d04d6eafa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tasks/sink/textures/MinigameJustWindow-export.png"
-dest_files=["res://.godot/imported/MinigameJustWindow-export.png-6f623cbb066d6de5e9f0cae578c4c09d.ctex"]
+source_file="res://textures/buttons.png"
+dest_files=["res://.godot/imported/buttons.png-d3a742fe0ddaa51717ec3a2d04d6eafa.ctex"]
 
 [params]
 

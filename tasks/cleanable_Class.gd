@@ -11,15 +11,23 @@ var crouchingTaskFinished : bool = true
 @export var ReachingTaskScene : PackedScene = null
 var reachingTaskFinished : bool = true
 
-@onready var sprite : Sprite2D = $Sprite2D
+@onready var sprite : Sprite2D = $texture
+@onready var dirtSprite : Sprite2D = $dirt
+var totalDirt : int = 0
 var activeTask : Control = null
 var currentState : States.MovementState = States.MovementState.NONE
 var interactor : InteractionModule = null
 
 func _ready() -> void:
+	dirtSprite.visible = false
 	if StandingTaskScene: standingTaskFinished = false
 	if CrouchingTaskScene: crouchingTaskFinished = false
 	if ReachingTaskScene: reachingTaskFinished = false
+	
+	totalDirt = int(not standingTaskFinished) + int(not crouchingTaskFinished) + int(not reachingTaskFinished)
+	if totalDirt >= 1:
+		dirtSprite.visible = true
+		dirtSprite.modulate.a = 0.4 + totalDirt / 3
 
 func start_task(calledBy : InteractionModule, State : States.MovementState) -> Node:
 	interactor = calledBy
@@ -27,7 +35,7 @@ func start_task(calledBy : InteractionModule, State : States.MovementState) -> N
 	currentState = State
 	
 	match State: # match the value of State to one of the listed values
-		States.MovementState.STAND: # standing value
+		States.MovementState.STAND, States.MovementState.WALK: # standing value
 			if standingTaskFinished: return null
 			task_scene = StandingTaskScene
 			
@@ -82,16 +90,17 @@ func on_task_finished() -> void:
 		_:
 			print("task finish error - something bad happened fix it")
 	
-	task_completed.emit()
+	totalDirt -= 1
 	
+	task_completed.emit()
 	end_task()
 	
 	# blink animation
 	await get_tree().create_timer(0.65).timeout
 	sprite.material.set_shader_parameter("flash", 1.0)
 	var baseSizeY = sprite.scale.y
-	sprite.scale.y *= 0.9
-	sprite.offset.y = 40
+	sprite.scale.y *= 0.99
+	sprite.offset.y = 2
 	
 		# animation
 	var blinkTween = create_tween().parallel()
@@ -100,4 +109,8 @@ func on_task_finished() -> void:
 	blinkTween.parallel().tween_property(sprite.material, "shader_parameter/flash", 0.0, 0.6)
 	blinkTween.parallel().tween_property(sprite, "scale:y", baseSizeY, 0.4)
 	blinkTween.parallel().tween_property(sprite, "offset:y", 0, 0.4)
-	
+	if totalDirt <= 0:
+		dirtSprite.visible = false
+
+func has_tasks() -> bool:
+	return true if totalDirt == 0 else false

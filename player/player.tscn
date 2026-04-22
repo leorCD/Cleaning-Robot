@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://crh2i3ux772w2" path="res://player/player_animator.gd" id="7_boad6"]
 [ext_resource type="Texture2D" uid="uid://cxec2mjmw4spv" path="res://player/textures/battery.png" id="7_ebec5"]
 [ext_resource type="Texture2D" uid="uid://dcw5aenhv68b8" path="res://player/textures/RoombaB.png" id="7_rgyib"]
+[ext_resource type="Texture2D" uid="uid://b8alrkohokqr3" path="res://player/textures/Romahd.png" id="8_ebec5"]
 [ext_resource type="Texture2D" uid="uid://c10np0hacseyg" path="res://player/textures/RomIdle1.png" id="9_8t03j"]
 [ext_resource type="Texture2D" uid="uid://c4bew0rpge6tl" path="res://player/textures/Romwalk1.png" id="10_2ieo8"]
 
@@ -19,10 +20,10 @@ shader_parameter/targetColor = Color(0.7254902, 0.7019608, 0.654902, 1)
 shader_parameter/roughness = 0.01
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
-size = Vector2(52, 76)
+size = Vector2(52, 75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yw30f"]
-size = Vector2(56, 80)
+size = Vector2(58, 76)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebec5"]
 bg_color = Color(1, 1, 1, 1)
@@ -84,6 +85,34 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("6_g6k8r")]
+}
+
+[sub_resource type="Animation" id="Animation_kb6p2"]
+resource_name = "dead"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_ebec5")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_2ieo8"]
@@ -184,6 +213,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("2_qjkh3")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
 
 [sub_resource type="Animation" id="Animation_yllr7"]
 resource_name = "walk"
@@ -230,6 +271,7 @@ tracks/2/keys = {
 _data = {
 &"RESET": SubResource("Animation_boad6"),
 &"crouching": SubResource("Animation_rgyib"),
+&"dead": SubResource("Animation_kb6p2"),
 &"door_enter": SubResource("Animation_2ieo8"),
 &"door_exit": SubResource("Animation_8t03j"),
 &"idle": SubResource("Animation_ebec5"),
@@ -242,7 +284,8 @@ script = ExtResource("1_rkbax")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=658354245]
 process_mode = 3
-zoom = Vector2(2, 2)
+offset = Vector2(0, -42.325)
+zoom = Vector2(2.5, 2.5)
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
@@ -252,6 +295,7 @@ material = SubResource("ShaderMaterial_8t03j")
 texture = ExtResource("2_qjkh3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1929782218]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_rkbax")
 debug_color = Color(1, 0, 0.15294118, 0)
 
@@ -260,12 +304,13 @@ script = ExtResource("3_qjkh3")
 batteryFill = NodePath("../HUDModule/battery/fill")
 
 [node name="InteractModule" type="Area2D" parent="." unique_id=428256753 node_paths=PackedStringArray("TaskHud", "HUDModule")]
-collision_mask = 2
+collision_mask = 6
 script = ExtResource("3_g1dw6")
 TaskHud = NodePath("TaskLayer")
 HUDModule = NodePath("../HUDModule")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractModule" unique_id=2057291534]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_yw30f")
 debug_color = Color(0.36078432, 1, 0.2627451, 0)
 

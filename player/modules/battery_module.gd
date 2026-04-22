@@ -13,13 +13,20 @@ func _ready() -> void:
 	if not batteryFill: return
 	maxFillSizeX = batteryFill.size.x
 
-
 func _process(delta: float) -> void:
 	if not batteryFill: return
 	
 	if player.direction and not player.freezeMovement:
-		subtract_battery(batteryDepletionRate * delta)
+		var depletion = batteryDepletionRate
+		if player.movementState == States.MovementState.CROUCH:
+			depletion = batteryDepletionRate / 3.2
+		subtract_battery(depletion * delta)
 	
+	update_battery_ui()
+
+
+
+func update_battery_ui() -> void:
 	if currBattery <= 0:
 		batteryFill.size.x = 0
 	else:

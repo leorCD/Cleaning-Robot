@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://io0a4v5lel6s"
-path="res://.godot/imported/brown-dirt-minecraft-pattern_thumb.jpg-eb6b9cf75872b2ec290af1b0cc5c3969.ctex"
+uid="uid://bg3caw5b4fvpv"
+path="res://.godot/imported/RoomRightEdge.png-3344df604aa8a824f522e0c9d82e9324.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/brown-dirt-minecraft-pattern_thumb.jpg"
-dest_files=["res://.godot/imported/brown-dirt-minecraft-pattern_thumb.jpg-eb6b9cf75872b2ec290af1b0cc5c3969.ctex"]
+source_file="res://textures/room/RoomRightEdge.png"
+dest_files=["res://.godot/imported/RoomRightEdge.png-3344df604aa8a824f522e0c9d82e9324.ctex"]
 
 [params]
 

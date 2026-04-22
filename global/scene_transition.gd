@@ -1,16 +1,28 @@
 extends Control
 
+var currentLevelPath : String = ""
 var fakeAspectRatio : PackedScene = preload("res://global/4_3_fake_aspect_ratio.tscn")
 var existing = null
 
 func change_scenes(scene_path : String) -> void:
 	await close()
 	
-	
 	get_tree().change_scene_to_file(scene_path)
+	currentLevelPath = scene_path
 	
 	#existing = create_fake_aspect_ratio()
 	#get_tree().root.add_child(existing)
+	
+	await open()
+
+func restart_scene() -> void:
+	if not currentLevelPath:
+		print("not in a level")
+		return
+	
+	await close()
+	
+	get_tree().change_scene_to_file(currentLevelPath)
 	
 	await open()
 

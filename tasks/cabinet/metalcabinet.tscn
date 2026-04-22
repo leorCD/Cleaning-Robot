@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b2dipp603c1k5"]
+
+[ext_resource type="Script" uid="uid://bw4wn5pphs17g" path="res://tasks/cleanable_Class.gd" id="1_5ol2g"]
+[ext_resource type="Texture2D" uid="uid://po8seh7uxrra" path="res://textures/room/MetalCabinet.png" id="2_cjiqv"]
+[ext_resource type="Shader" uid="uid://dhoh60wuopajp" path="res://shaders/blinkEffect.gdshader" id="2_ohq80"]
+[ext_resource type="Texture2D" uid="uid://jushp1urv8pa" path="res://textures/room/MetalCabinet-dirt.png" id="3_vyil0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8qu3w"]
+resource_local_to_scene = true
+shader = ExtResource("2_ohq80")
+shader_parameter/flash = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vyil0"]
+size = Vector2(20, 58)
+
+[node name="metalcabinet" type="Area2D" unique_id=173271329]
+collision_layer = 4
+script = ExtResource("1_5ol2g")
+
+[node name="texture" type="Sprite2D" parent="." unique_id=872203538]
+material = SubResource("ShaderMaterial_8qu3w")
+texture = ExtResource("2_cjiqv")
+
+[node name="dirt" type="Sprite2D" parent="." unique_id=2019283039]
+texture = ExtResource("3_vyil0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1568686956]
+shape = SubResource("RectangleShape2D_vyil0")

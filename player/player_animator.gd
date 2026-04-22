@@ -6,6 +6,7 @@ var movementAnims = {
 	States.MovementState.STAND : "idle",
 	States.MovementState.REACH : "reach",
 	States.MovementState.WALK : "walk",
+	States.MovementState.DEAD : "dead",
 }
 var actionAnims = {
 	States.ActionState.DIED : "died",

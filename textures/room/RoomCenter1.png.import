@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgm2k0dlyukn6"
-path="res://.godot/imported/sink.png-b24fead8e32aa908364f420954795f10.ctex"
+uid="uid://s6xl6w7tyxo0"
+path="res://.godot/imported/RoomCenter1.png-755c7feb370a735ec7a12f87f5f9c365.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/sink.png"
-dest_files=["res://.godot/imported/sink.png-b24fead8e32aa908364f420954795f10.ctex"]
+source_file="res://textures/room/RoomCenter1.png"
+dest_files=["res://.godot/imported/RoomCenter1.png-755c7feb370a735ec7a12f87f5f9c365.ctex"]
 
 [params]
 

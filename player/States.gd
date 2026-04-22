@@ -2,6 +2,7 @@ class_name States
 
 enum MovementState{ # looping
 	NONE,
+	DEAD,
 	STAND,
 	CROUCH,
 	REACH,

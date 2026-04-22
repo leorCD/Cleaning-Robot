@@ -1,12 +1,14 @@
 extends Control
+class_name CleaningTask
 
 signal task_finished
 
+@onready var background = $Canvas/Panel/MarginContainer/background
 @onready var dirt = $Canvas/Panel/MarginContainer/dirt
 @onready var svContainer = $Canvas/Panel/MarginContainer/SubViewportContainer
 @onready var subViewport = $Canvas/Panel/MarginContainer/SubViewportContainer/SubViewport
 
-var mousePressed :bool = false
+var mousePressed : bool = false
 var _mask_img : Image
 var _dirt_img : Image
 

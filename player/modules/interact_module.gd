@@ -15,6 +15,9 @@ var taskUI : Node = null
 
 @onready var objectMarker : Node2D = load("res://scenes/object_marker.tscn").instantiate()
 
+func _process(delta: float) -> void:
+	update_closest_interactable()
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
 		if currentTask:
@@ -151,12 +154,10 @@ func on_level_complete() -> void:
 func _on_area_entered(newArea: Area2D) -> void:
 	if (not newArea in nearbyInteractables):
 		nearbyInteractables.append(newArea)
-		update_closest_interactable()
 		
 func _on_area_exited(newArea: Area2D) -> void:
 	if (newArea in nearbyInteractables):
 		nearbyInteractables.erase(newArea)
-		update_closest_interactable()
 	
 	if not targetInteractable:
 		objectMarker.visible = false
@@ -175,15 +176,22 @@ func update_closest_interactable() -> void:
 			closestDistance = distance # set its distance as the new threshold
 			closest = object # set it as the new closest object
 	
-	if closest and (closest is Interactable or closest is Cleanable):
+	targetInteractable = closest
+	
+	if closest:
+		if closest is Cleanable and closest.has_tasks():
+			objectMarker.visible = false
+			targetInteractable = null
+			return
 		objectMarker.visible = true
+		
 		if objectMarker.get_parent() == closest:
 			return
 		if objectMarker.get_parent() == null:
 			closest.add_child(objectMarker)
 		
-		objectMarker.reparent(closest)
 		var closestObjectSizeY = Vector2(0, -closest.get_node("CollisionShape2D").shape.size.y * 3/4)
 		objectMarker.global_position = closest.global_position + closestObjectSizeY
-	
-	targetInteractable = closest
+		objectMarker.reparent(closest)
+	else:
+		objectMarker.visible = false

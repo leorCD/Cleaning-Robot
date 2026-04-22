@@ -51,17 +51,14 @@ func _physics_process(delta: float) -> void:
 	reaching = Input.is_action_pressed("up")
 	
 	# set current movement state (for cleaning tasks)
-	if direction:
-		movementState = States.MovementState.WALK
-	elif crouching:
+	if crouching:
 		movementState = States.MovementState.CROUCH
-		camera.position.y = 15
 	elif reaching:
 		movementState = States.MovementState.REACH
-		camera.position.y = -15
+	elif direction:
+		movementState = States.MovementState.WALK
 	else:
 		movementState = States.MovementState.STAND
-		camera.position.y = 0
 	
 	move_and_slide()
 
@@ -78,18 +75,22 @@ func _process(_delta: float) -> void:
 
 func die() -> void:
 	self.alive = false
+	movementState = States.MovementState.DEAD
+	
+	await get_tree().create_timer(1).timeout
+	SceneTransition.restart_scene()
 
 func can_move(canMove : bool) -> void:
 	if forceFreeze:
 		freezeMovement = true
-		zoom_camera(1.5)
+		zoom_camera(1.8)
 		return
 	
 	freezeMovement = not canMove
 	if not canMove:
 		zoom_camera(6.0)
 	else:
-		zoom_camera(2.0)
+		zoom_camera(2.5)
 
 func zoom_camera(zoom : float) -> void:
 	camera.position = Vector2.ZERO
