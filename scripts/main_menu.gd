@@ -8,17 +8,17 @@ func _ready() -> void:
 	# ready is automatically called right when the script is loaded into the scene
 	
 	# connect each button to their functions
-	playButton.pressed.connect(playFunction)
-	settingsButton.pressed.connect(settingsFunction)
-	exitButton.pressed.connect(exitFunction)
+	playButton.pressed.connect(play_function)
+	settingsButton.pressed.connect(settings_function)
+	exitButton.pressed.connect(exit_function)
 
 
 
-func playFunction() -> void:
-	SceneTransition.change_scenes("res://scenes/test.tscn")
+func play_function() -> void:
+	SceneTransition.change_scenes("res://scenes/level1.tscn")
 	
-func settingsFunction() -> void:
+func settings_function() -> void:
 	print("open settings")
 	
-func exitFunction() -> void:
+func exit_function() -> void:
 	pass

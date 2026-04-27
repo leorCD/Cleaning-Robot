@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://dqkg63hxeaqbb"]
+
+[ext_resource type="Script" uid="uid://bgo6cjvqfd76b" path="res://tasks/drawing.gd" id="1_5dkho"]
+[ext_resource type="Script" uid="uid://b5hd7uppatkeq" path="res://tasks/mask.gd" id="2_jygob"]
+[ext_resource type="Texture2D" uid="uid://ba0k7qunagy51" path="res://tasks/sink/textures/MinigameJustWindow.png" id="2_k4aye"]
+[ext_resource type="Texture2D" uid="uid://pm8ms1gbw3tn" path="res://textures/MinigameIpad.png" id="2_no800"]
+[ext_resource type="Shader" uid="uid://cxjlgkmb0b7h3" path="res://shaders/dirt_shader.gdshader" id="3_no800"]
+[ext_resource type="Texture2D" uid="uid://c3x37kbcypgat" path="res://tasks/sink/textures/MinigameMess.png" id="6_k4aye"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4aye"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k4aye"]
+shader = ExtResource("3_no800")
+
+[sub_resource type="SystemFont" id="SystemFont_y1b2w"]
+font_names = PackedStringArray("Monospace")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_0aruh"]
+font = SubResource("SystemFont_y1b2w")
+font_size = 24
+
+[node name="sink_standing" type="Control" unique_id=812949551]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5dkho")
+metadata/_edit_use_anchors_ = true
+
+[node name="Canvas" type="TextureRect" parent="." unique_id=1302523492]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 47.0
+offset_right = 1028.907
+offset_bottom = 583.0
+texture = ExtResource("2_no800")
+
+[node name="Panel" type="Panel" parent="Canvas" unique_id=711421827]
+self_modulate = Color(0, 0, 0, 0)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0026741293
+anchor_top = 0.0037313432
+anchor_right = 0.9453047
+anchor_bottom = 0.99626863
+theme_override_styles/panel = SubResource("StyleBoxFlat_k4aye")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/Panel" unique_id=1592397987]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="background" type="TextureRect" parent="Canvas/Panel/MarginContainer" unique_id=161536709]
+layout_mode = 2
+texture = ExtResource("2_k4aye")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="dirt" type="TextureRect" parent="Canvas/Panel/MarginContainer" unique_id=427089324]
+z_index = 1
+material = SubResource("ShaderMaterial_k4aye")
+layout_mode = 2
+texture = ExtResource("6_k4aye")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Canvas/Panel/MarginContainer" unique_id=867920979]
+z_index = -4
+layout_mode = 2
+stretch = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="Canvas/Panel/MarginContainer/SubViewportContainer" unique_id=1888957231]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(689, 516)
+render_target_update_mode = 4
+
+[node name="drawing" type="Node2D" parent="Canvas/Panel/MarginContainer/SubViewportContainer/SubViewport" unique_id=122328963]
+script = ExtResource("2_jygob")
+
+[node name="ColorRect" type="ColorRect" parent="Canvas/Panel/MarginContainer" unique_id=532733691]
+z_index = -1
+layout_mode = 2
+color = Color(0.5529412, 0.5529412, 0.5529412, 1)
+
+[node name="Label" type="Label" parent="Canvas/Panel" unique_id=704596703]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2312057
+anchor_top = 0.42857143
+anchor_right = 0.8028369
+anchor_bottom = 0.5714286
+offset_left = 52.000015
+offset_right = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CONNECTING TO VISUAL FEED..."
+label_settings = SubResource("LabelSettings_0aruh")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

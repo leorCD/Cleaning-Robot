@@ -1,0 +1,207 @@
+[gd_scene format=3 uid="uid://d11ibitadgo44"]
+
+[ext_resource type="PackedScene" uid="uid://dfayqmttyqmjf" path="res://player/player.tscn" id="1_g2h75"]
+[ext_resource type="PackedScene" uid="uid://dwj8dxk2orq1x" path="res://tasks/sink/window.tscn" id="2_dwgg1"]
+[ext_resource type="Script" uid="uid://bw4wn5pphs17g" path="res://tasks/cleanable_Class.gd" id="3_ejswk"]
+[ext_resource type="Script" uid="uid://7jnxis6x6ko3" path="res://global/4_3_fake_aspect_ratio.gd" id="3_u068y"]
+[ext_resource type="Script" uid="uid://bouls4bgbr71v" path="res://scripts/task_manager.gd" id="4_conm7"]
+[ext_resource type="Texture2D" uid="uid://noa3d3u6nigi" path="res://textures/buttons.png" id="4_mvsps"]
+[ext_resource type="PackedScene" uid="uid://ca1ti3xnqjjh2" path="res://global/4_3_fake_aspect_ratio.tscn" id="5_ru4tf"]
+[ext_resource type="PackedScene" uid="uid://ghg7h82aqn40" path="res://objects/door/door.tscn" id="6_6sh32"]
+[ext_resource type="PackedScene" uid="uid://dqkg63hxeaqbb" path="res://tasks/sink/window_standing.tscn" id="8_3w4mx"]
+[ext_resource type="PackedScene" uid="uid://b2dipp603c1k5" path="res://tasks/cabinet/metalcabinet.tscn" id="8_gnai3"]
+[ext_resource type="Texture2D" uid="uid://s6xl6w7tyxo0" path="res://textures/room/RoomCenter1.png" id="9_gnai3"]
+[ext_resource type="Texture2D" uid="uid://c6k1hurpo7ev3" path="res://textures/room/RoomCenter2.png" id="10_i8kv5"]
+[ext_resource type="PackedScene" uid="uid://cslymy7ylhaix" path="res://tasks/cabinet/cabinet_standing.tscn" id="10_u068y"]
+[ext_resource type="Texture2D" uid="uid://clr5dg4k7opkh" path="res://textures/room/RoomLeftEdge.png" id="11_dxn3v"]
+[ext_resource type="PackedScene" uid="uid://crj1lsh8jg1jn" path="res://scenes/charger.tscn" id="12_3w4mx"]
+[ext_resource type="Texture2D" uid="uid://bg3caw5b4fvpv" path="res://textures/room/RoomRightEdge.png" id="12_14jow"]
+[ext_resource type="Texture2D" uid="uid://c8grwsc0ucda5" path="res://textures/room/Table.png" id="15_14jow"]
+[ext_resource type="Texture2D" uid="uid://n1u3itka1niq" path="res://textures/room/ChairSide.png" id="16_mvsps"]
+[ext_resource type="Texture2D" uid="uid://bwu8q8j4t8q6h" path="res://textures/room/ChairFace.png" id="17_jvkml"]
+[ext_resource type="Texture2D" uid="uid://mhcwtv61wkl0" path="res://textures/room/WallPainting.png" id="18_mvsps"]
+
+[sub_resource type="SystemFont" id="SystemFont_jvkml"]
+font_names = PackedStringArray("Pixeled")
+
+[sub_resource type="LabelSettings" id="LabelSettings_3w4mx"]
+font = SubResource("SystemFont_jvkml")
+
+[sub_resource type="SystemFont" id="SystemFont_mvsps"]
+font_names = PackedStringArray("Pixeled")
+
+[sub_resource type="LabelSettings" id="LabelSettings_jvkml"]
+font = SubResource("SystemFont_mvsps")
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2h75"]
+size = Vector2(614, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnai3"]
+size = Vector2(20, 160)
+
+[node name="Level1" type="Node2D" unique_id=2091779854]
+
+[node name="4_3 fake aspect ratio" parent="." unique_id=31042625 instance=ExtResource("5_ru4tf")]
+visible = false
+script = ExtResource("3_u068y")
+
+[node name="player" parent="." unique_id=577084683 instance=ExtResource("1_g2h75")]
+z_index = 5
+position = Vector2(-245, 59)
+
+[node name="Guide" type="Node" parent="." unique_id=493019516]
+
+[node name="movement" type="Node2D" parent="Guide" unique_id=189005290]
+position = Vector2(-225, -72)
+metadata/_edit_group_ = true
+
+[node name="Buttons" type="Sprite2D" parent="Guide/movement" unique_id=1759960054]
+position = Vector2(-27, 14)
+scale = Vector2(0.10126576, 0.10126581)
+texture = ExtResource("4_mvsps")
+region_enabled = true
+region_rect = Rect2(702, 69, 372, 316)
+
+[node name="Buttons2" type="Sprite2D" parent="Guide/movement" unique_id=1727079234]
+position = Vector2(26, 14)
+scale = Vector2(0.10126578, 0.10126584)
+texture = ExtResource("4_mvsps")
+region_enabled = true
+region_rect = Rect2(702, 69, 372, 316)
+
+[node name="Label" type="Label" parent="Guide/movement" unique_id=741504797]
+offset_left = -70.0
+offset_top = -43.0
+offset_right = 79.0
+offset_bottom = 3.0
+rotation = -0.060375057
+text = "Movement"
+label_settings = SubResource("LabelSettings_3w4mx")
+
+[node name="Label2" type="Label" parent="Guide/movement" unique_id=2064641665]
+offset_left = -32.0
+offset_top = -17.0
+offset_right = -18.0
+offset_bottom = 23.0
+text = "a"
+label_settings = SubResource("LabelSettings_jvkml")
+
+[node name="Label3" type="Label" parent="Guide/movement" unique_id=275995538]
+offset_left = 21.0
+offset_top = -17.0
+offset_right = 35.0
+offset_bottom = 23.0
+text = "d"
+label_settings = SubResource("LabelSettings_jvkml")
+
+[node name="Tasks" type="Node" parent="." unique_id=32572920]
+script = ExtResource("4_conm7")
+
+[node name="window" parent="Tasks" unique_id=178642162 instance=ExtResource("2_dwgg1")]
+position = Vector2(-184, 37)
+script = ExtResource("3_ejswk")
+StandingTaskScene = ExtResource("8_3w4mx")
+
+[node name="window2" parent="Tasks" unique_id=1409830479 instance=ExtResource("2_dwgg1")]
+position = Vector2(32, 32)
+script = ExtResource("3_ejswk")
+StandingTaskScene = ExtResource("8_3w4mx")
+
+[node name="metalcabinet" parent="Tasks" unique_id=173271329 instance=ExtResource("8_gnai3")]
+position = Vector2(78, 69)
+StandingTaskScene = ExtResource("10_u068y")
+
+[node name="metalcabinet2" parent="Tasks" unique_id=741050834 instance=ExtResource("8_gnai3")]
+position = Vector2(115, 69)
+
+[node name="Interactables" type="Node" parent="." unique_id=652479531]
+
+[node name="Door" parent="Interactables" unique_id=943212755 node_paths=PackedStringArray("leadsTo") instance=ExtResource("6_6sh32")]
+position = Vector2(-244, 57)
+collision_layer = 0
+leadsTo = NodePath("../Door2")
+
+[node name="Door2" parent="Interactables" unique_id=2083739151 node_paths=PackedStringArray("leadsTo") instance=ExtResource("6_6sh32")]
+position = Vector2(182, 57)
+collision_layer = 0
+leadsTo = NodePath("../Door")
+
+[node name="LevelGoal" parent="Interactables" unique_id=698597847 node_paths=PackedStringArray("taskManager") instance=ExtResource("12_3w4mx")]
+position = Vector2(256, 68)
+taskManager = NodePath("../../Tasks")
+
+[node name="Walls" type="Node" parent="." unique_id=1031712267]
+
+[node name="floor" type="StaticBody2D" parent="Walls" unique_id=2020616492]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/floor" unique_id=2002632431]
+position = Vector2(0, 108)
+shape = SubResource("RectangleShape2D_g2h75")
+debug_color = Color(0, 0, 0, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/floor" unique_id=1358412905]
+position = Vector2(-303, 38)
+shape = SubResource("RectangleShape2D_gnai3")
+debug_color = Color(0, 0, 0, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls/floor" unique_id=1216040568]
+position = Vector2(303, 38)
+shape = SubResource("RectangleShape2D_gnai3")
+debug_color = Color(0, 0, 0, 0.41960785)
+
+[node name="RoomCenter1" type="Sprite2D" parent="." unique_id=1014109608]
+z_index = -999
+position = Vector2(-76, 36)
+texture = ExtResource("9_gnai3")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="RoomCenter2" type="Sprite2D" parent="." unique_id=1453242771]
+z_index = -999
+position = Vector2(76, 36)
+texture = ExtResource("10_i8kv5")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="RoomLeftEdge" type="Sprite2D" parent="." unique_id=813313186]
+z_index = -999
+position = Vector2(-228, 36)
+texture = ExtResource("11_dxn3v")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="RoomRightEdge" type="Sprite2D" parent="." unique_id=1256194442]
+z_index = -999
+position = Vector2(228, 36)
+texture = ExtResource("12_14jow")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Table" type="Sprite2D" parent="." unique_id=202274032]
+position = Vector2(-75, 80)
+texture = ExtResource("15_14jow")
+
+[node name="ChairSide" type="Sprite2D" parent="." unique_id=1696464843]
+position = Vector2(-126, 74)
+texture = ExtResource("16_mvsps")
+
+[node name="ChairFace" type="Sprite2D" parent="." unique_id=216105342]
+position = Vector2(-22, 74)
+texture = ExtResource("17_jvkml")
+
+[node name="WallPainting" type="Sprite2D" parent="." unique_id=1303324204]
+position = Vector2(-74, 44)
+texture = ExtResource("18_mvsps")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=913597169]
+show_behind_parent = true
+z_index = -999
+offset_left = -1157.0
+offset_top = -1157.0
+offset_right = 1197.0
+offset_bottom = 1197.0
+color = Color(0.11764706, 0.12156863, 0.12156863, 1)
+metadata/_edit_lock_ = true

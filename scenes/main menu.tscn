@@ -104,12 +104,12 @@ text = "quit game"
 [node name="Title" type="Label" parent="." unique_id=1372113317]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.11111111
+anchor_left = 0.15000002
 anchor_top = 0.20061728
-anchor_right = 0.8888889
+anchor_right = 0.85
 anchor_bottom = 0.35493827
-offset_left = 130.0
-offset_right = -130.0
+offset_left = 80.2222
+offset_right = -80.22217
 grow_horizontal = 2
 text = "CLEANING ROBOT GAMEEEEEE"
 label_settings = SubResource("LabelSettings_5hgee")

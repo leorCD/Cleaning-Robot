@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://ca1ti3xnqjjh2"]
+
+[node name="4_3 fake aspect ratio" type="CanvasLayer" unique_id=31042625]
+layer = 10
+
+[node name="screen" type="Control" parent="." unique_id=188420487]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="screen" unique_id=1666035671]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.16640624
+anchor_bottom = 1.0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="screen" unique_id=1013122403]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.16640624
+anchor_right = 0.8335937
+anchor_bottom = 0.022222223
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect4" type="ColorRect" parent="screen" unique_id=795110857]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.16640624
+anchor_top = 0.9111111
+anchor_right = 0.8335937
+anchor_bottom = 1.0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="screen" unique_id=679523072]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8335937
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
