@@ -1,4 +1,4 @@
-<h1 align="center">🧼 [Game Title]</h1>
+<h1 align="center">🧼 CLEAN CO.</h1>
 
 <p align="center">
   You're a cleaning robot in a factory testing facility, and you have to pass your exams before you can be shipped out. Scrub messes spotless like a 2D PowerWash Simulator, then get graded on a clipboard checklist.
