@@ -14,8 +14,9 @@ Each level is a mock house built to test what the robot can do, and your battery
 Every bot gets a random three-letter ID (AAA to ZZZ) and its own color. If you restart, you're following a different bot that made it to the same point.
 
 ## 🛠️ Built With
-- [Engine and language, e.g. Godot 4 (C#)]
-- [Other tools]
+- Godot 4.5 (C#)
+- Aesprite
+- Krita
 
-## 🎮 Status
+## ⚠️ Status
 Abandoned
